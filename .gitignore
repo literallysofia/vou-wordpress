@@ -1,0 +1,15 @@
+# Dependency directory
+node_modules
+bower_components
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Build
+/*.css
+/*.php
+/images
+/js
+/partials
+/templates
