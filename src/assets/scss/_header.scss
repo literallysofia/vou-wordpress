@@ -1,0 +1,33 @@
+nav.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 3em;
+  background: white !important;
+  transition: all 0.3s ease-in;
+  &.scroll {
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  }
+  .navbar-brand img {
+    height: 50px !important;
+  }
+  .navbar-nav .nav-item {
+    display: flex;
+    align-items: center;
+    //font-family: $font-mono;
+    margin: 0 1em;
+    font-size: 13px;
+    counter-increment: item 1;
+    position: relative;
+    &:before {
+      content: "0" counter(item) ".";
+      color: red;
+      margin-right: 1em;
+    }
+
+    a.nav-link {
+      color: black !important;
+      padding: 0;
+    }
+  }
+}

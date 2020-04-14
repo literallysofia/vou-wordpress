@@ -17,35 +17,50 @@ const // source and build folders
   concat = require("gulp-concat"),
   stripdebug = require("gulp-strip-debug"),
   uglify = require("gulp-uglify"),
+  browsersync = require("browser-sync").create(),
   del = require("del");
 
-// Browser-sync
-var browsersync = false;
-
 // PHP settings
-const php = {
+const phpOpts = {
   src: [dir.src + "**/*.php", dir.src + "partials/**/*.php", dir.src + "templates/**/*.php"],
   build: dir.build,
 };
 
-// copy PHP files
-gulp.task("php", () => {
-  return gulp.src(php.src).pipe(newer(php.build)).pipe(gulp.dest(php.build));
-});
+// Task: copy PHP files
+function php() {
+  let dirs = [phpOpts.build + "*.php", phpOpts.build + "partials", phpOpts.build + "templates"];
+  del(dirs);
+  return gulp.src(phpOpts.src).pipe(newer(phpOpts.build)).pipe(gulp.dest(phpOpts.build)).pipe(browsersync.stream());
+}
+exports.php = php;
 
-// image settings
-const images = {
-  src: dir.src + "assets/images/**/*",
-  build: dir.build + "images/",
+// Bootstrap settings
+const bsOpts = {
+  src: dir.src + "assets/bootstrap/**/*",
+  build: dir.build + "assets/bootstrap/",
 };
 
-// image processing
-gulp.task("images", () => {
-  return gulp.src(images.src).pipe(newer(images.build)).pipe(imagemin()).pipe(gulp.dest(images.build));
-});
+// Task: copy Bootstrap
+function bootstrap() {
+  return gulp.src(bsOpts.src).pipe(newer(bsOpts.build)).pipe(gulp.dest(bsOpts.build));
+}
+
+// Image settings
+const imageOpts = {
+  src: dir.src + "assets/images/**/*",
+  build: dir.build + "assets/images/",
+};
+
+// Task: image processing
+function images() {
+  del(imageOpts.build + "*");
+  return gulp.src(imageOpts.src).pipe(newer(imageOpts.build)).pipe(imagemin()).pipe(gulp.dest(imageOpts.build));
+}
+
+exports.images = images;
 
 // CSS settings
-var css = {
+const cssOpts = {
   src: dir.src + "assets/scss/style.scss",
   watch: dir.src + "assets/scss/**/*",
   build: dir.build,
@@ -67,48 +82,90 @@ var css = {
   ],
 };
 
-// CSS processing
-gulp.task("sass", () => {
+// Task: CSS processing
+function css() {
   return gulp
-    .src(css.src)
-    .pipe(sass(css.sassOpts))
-    .pipe(postcss(css.processors))
-    .pipe(gulp.dest(css.build))
-    .pipe(browsersync ? browsersync.reload({ stream: true }) : gutil.noop());
-});
-
-gulp.task("css", gulp.series("images", "sass"));
+    .src(cssOpts.src)
+    .pipe(sass(cssOpts.sassOpts))
+    .pipe(postcss(cssOpts.processors))
+    .pipe(gulp.dest(cssOpts.build))
+    .pipe(browsersync.stream());
+}
+exports.css = gulp.series(images, bootstrap, css);
 
 // JavaScript settings
-const js = {
+const jsOpts = {
   src: dir.src + "assets/js/**/*",
-  build: dir.build + "js/",
+  build: dir.build + "assets/js/",
   filename: "scripts.js",
 };
 
-// JavaScript processing
-gulp.task("js", () => {
+// Task: JavaScript processing
+function js() {
   return gulp
-    .src(js.src)
+    .src(jsOpts.src)
     .pipe(deporder())
-    .pipe(concat(js.filename))
+    .pipe(concat(jsOpts.filename))
     .pipe(stripdebug())
     .pipe(uglify())
-    .pipe(gulp.dest(js.build))
-    .pipe(browsersync ? browsersync.reload({ stream: true }) : gutil.noop());
-});
+    .pipe(gulp.dest(jsOpts.build))
+    .pipe(browsersync.stream());
+}
+exports.js = js;
 
-gulp.task("clean", () => {
+// Task: delete built files
+function clean() {
   var dirs = [
     dir.build + "*.php",
     dir.build + "style.css",
     dir.build + "partials",
     dir.build + "templates",
-    dir.build + "images",
-    dir.build + "js",
+    dir.build + "assets",
   ];
   return del(dirs);
-});
+}
+exports.clean = clean;
 
-gulp.task("build", gulp.series("clean", gulp.parallel("php", "css", "js")));
-//gulp.task("build", gulp.parallel("php", "css", "js"));
+const build = gulp.series(clean, gulp.parallel(php, gulp.series(images, bootstrap, css), js));
+exports.build = build;
+
+// Browsersync options
+const syncOpts = {
+  proxy: "localhost:8888/vou",
+  open: false,
+  notify: false,
+  ghostMode: false,
+  ui: {
+    port: 8001,
+  },
+};
+
+// browser-sync
+function browserSync(done) {
+  browsersync.init(syncOpts);
+  done();
+}
+
+// BrowserSync Reload
+function browserSyncReload(done) {
+  browsersync.reload();
+  done();
+}
+
+// watch for file changes
+function watch() {
+  // page changes
+  gulp.watch(phpOpts.src, php);
+
+  // image changes
+  gulp.watch(imageOpts.src, gulp.series(images, browserSyncReload));
+
+  // CSS changes
+  gulp.watch(cssOpts.watch, css);
+
+  // JavaScript main changes
+  gulp.watch(jsOpts.src, js);
+}
+exports.watch = watch;
+
+exports.default = gulp.series(gulp.series(clean, build), browserSync, watch);
