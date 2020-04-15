@@ -9,7 +9,6 @@ Thumbs.db
 # Build
 /*.css
 /*.php
-/images
-/js
+/assets
 /partials
 /templates

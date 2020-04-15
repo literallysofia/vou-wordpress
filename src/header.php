@@ -23,17 +23,17 @@
             <img src="<?php bloginfo('template_url'); ?>/assets/images/logo.png" class="img-fluid" alt="Logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <i class="fas fa-bars"></i>
         </button>
         <?php
         wp_nav_menu([
             'menu'            => 'primary',
-            'theme_location'  => 'menu-1',
+            'theme_location'  => 'header-menu',
             'container'       => 'div',
             'container_id'    => 'navbarCollapse',
             'container_class' => 'collapse navbar-collapse',
             'menu_id'         => false,
-            'menu_class'      => 'navbar-nav mr-auto',
+            'menu_class'      => 'navbar-nav ml-auto d-flex align-items-center',
             'depth'           => 0,
             'fallback_cb'     => 'bs4navwalker::fallback',
             'walker'          => new bs4navwalker()
