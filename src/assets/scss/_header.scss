@@ -6,6 +6,12 @@ nav.navbar {
     height: 60px !important;
   }
 
+  .dropdown.show {
+    a.dropdown-toggle {
+      color: $main-color !important;
+    }
+  }
+
   a.dropdown-toggle {
     cursor: pointer;
     &::after {
@@ -18,7 +24,23 @@ nav.navbar {
 
   .dropdown-menu {
     border-color: $main-color;
-    transition: $transition;
+    margin-top: 0.5em;
+    padding: 0;
+    a.dropdown-item {
+      transition: $transition;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      border-radius: 4px;
+      &:first-child {
+        padding-top: 0.8em;
+      }
+      &:last-child {
+        padding-bottom: 0.8em;
+      }
+      &:hover {
+        color: $main-color !important;
+      }
+    }
   }
 
   .nav-item {
@@ -46,7 +68,7 @@ button.navbar-toggler {
   font-size: 1.5em;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 1199.98px) {
   nav.navbar {
     .navbar-nav {
       margin-top: 1em;

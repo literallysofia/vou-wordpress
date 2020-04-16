@@ -18,7 +18,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-xl navbar-light fixed-top">
         <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home">
             <?php
             $custom_logo_id = get_theme_mod('custom_logo');
