@@ -19,8 +19,14 @@
 
 <body <?php body_class(); ?>>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand" href="#">
-            <img src="<?php bloginfo('template_url'); ?>/assets/images/logo.png" class="img-fluid" alt="Logo">
+        <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home">
+            <?php
+            $custom_logo_id = get_theme_mod('custom_logo');
+            $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
+            if (has_custom_logo())
+                echo '<img src="' . esc_url($logo[0]) . '" alt="' . get_bloginfo('name') . '">';
+            else echo get_bloginfo('name');
+            ?>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>

@@ -6,6 +6,21 @@ nav.navbar {
     height: 60px !important;
   }
 
+  a.dropdown-toggle {
+    cursor: pointer;
+    &::after {
+      font-family: "Font Awesome 5 Free";
+      content: "\f0dd";
+      border: none;
+      margin-left: 0.5em;
+    }
+  }
+
+  .dropdown-menu {
+    border-color: $main-color;
+    transition: $transition;
+  }
+
   .nav-item {
     margin-left: 2em;
     a.nav-link {
