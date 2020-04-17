@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Include Bootstrap
+ */
 require_once('bs4navwalker.php');
 
 function themevou_enqueue_styles()
@@ -16,7 +20,7 @@ function themevou_enqueue_scripts()
 add_action('wp_enqueue_scripts', 'themevou_enqueue_scripts');
 
 /**
- * Register navigation menus uses wp_nav_menu in five places.
+ * Header logo and navigation menu
  */
 register_nav_menu('header-menu', 'Header Menu');
 
@@ -50,22 +54,23 @@ function themevou_custom_header_setup()
 }
 add_action('after_setup_theme', 'themevou_custom_header_setup');
 
+/**
+ * Customize Admin Panel
+ * Although the sanitize_callback parameter is optional, if you’re submitting your theme to the WordPress.org Theme Directory, it’s part of their requirement that every call to add_setting must specify a sanitization function. 
+ */
+
 function themevou_customize_register($wp_customize)
 {
+    // BANNER
     $wp_customize->add_section('banner_section', array(
         'title'    => __('Banner', 'banner'),
         'priority' => 50
     ));
 
-    $wp_customize->add_setting('footer_text_block', array(
-        'default'           => __('default text', 'genesischild'),
-        'sanitize_callback' => 'sanitize_text'
-    ));
-
     $wp_customize->add_setting('banner_title_text', array(
         'capability' => 'edit_theme_options',
         'default' => 'Vem ser VO.U.',
-        'sanitize_callback' => 'sanitize_text_field',
+        'sanitize_callback' => 'sanitize_text_field'
     ));
 
     $wp_customize->add_control('banner_title_text', array(
@@ -78,7 +83,7 @@ function themevou_customize_register($wp_customize)
     $wp_customize->add_setting('banner_description_text', array(
         'capability' => 'edit_theme_options',
         'default' => 'Na VO.U. Associação de Voluntariado Universitário acreditamos no conceito de Ensino Superior Solidário!',
-        'sanitize_callback' => 'sanitize_textarea_field',
+        'sanitize_callback' => 'sanitize_textarea_field'
     ));
 
     $wp_customize->add_control('banner_description_text', array(
@@ -91,7 +96,7 @@ function themevou_customize_register($wp_customize)
     $wp_customize->add_setting('banner_button_text', array(
         'capability' => 'edit_theme_options',
         'default' => 'Saber Mais',
-        'sanitize_callback' => 'sanitize_text_field',
+        'sanitize_callback' => 'sanitize_text_field'
     ));
 
     $wp_customize->add_control('banner_button_text', array(
@@ -108,6 +113,80 @@ function themevou_customize_register($wp_customize)
         'type' => 'checkbox',
         'section' => 'banner_section',
         'label' => __('Display Button')
+    ));
+
+    // FOOTER
+    $wp_customize->add_section('footer_section', array(
+        'title'    => __('Footer', 'footer'),
+        'priority' => 105
+    ));
+
+    $wp_customize->add_setting('footer_text', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Copyright 2020 VO.U. Todos os direitos reservados.',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('footer_text', array(
+        'type' => 'text',
+        'section' => 'footer_section',
+        'label' => __('Footer'),
+        'description' => __('Copyright information.')
+    ));
+
+    $wp_customize->add_setting('footer_facebook', array(
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control('footer_facebook', array(
+        'type' => 'text',
+        'section' => 'footer_section',
+        'label' => __('Facebook URL')
+    ));
+
+    $wp_customize->add_setting('footer_instagram', array(
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control('footer_instagram', array(
+        'type' => 'text',
+        'section' => 'footer_section',
+        'label' => __('Instagram URL')
+    ));
+
+    $wp_customize->add_setting('footer_twitter', array(
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control('footer_twitter', array(
+        'type' => 'text',
+        'section' => 'footer_section',
+        'label' => __('Twitter URL')
+    ));
+
+    $wp_customize->add_setting('footer_linkedin', array(
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control('footer_linkedin', array(
+        'type' => 'text',
+        'section' => 'footer_section',
+        'label' => __('LinkedIn URL')
+    ));
+
+    $wp_customize->add_setting('footer_youtube', array(
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control('footer_youtube', array(
+        'type' => 'text',
+        'section' => 'footer_section',
+        'label' => __('Youtube URL')
     ));
 }
 add_action('customize_register', 'themevou_customize_register');
