@@ -16,7 +16,7 @@
             echo '<li><a <a href="' . get_theme_mod('footer_facebook') . '"><i class="fab fa-youtube"></i></a></li>';
         ?>
     </ul>
-    <span><?php echo get_theme_mod('footer_text'); ?></span>
+    <span><?php echo get_theme_mod('footer_text', 'Copyright 2020 VO.U. Todos os direitos reservados.'); ?></span>
 </footer>
 <?php wp_footer(); ?>
 </body>
