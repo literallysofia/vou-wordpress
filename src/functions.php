@@ -330,5 +330,98 @@ function themevou_customize_register($wp_customize)
         'label' => __('Third Text'),
         'description' => __('Write a description for the third column.')
     ));
+
+    // DIVIDER
+    $wp_customize->add_section('divider_section', array(
+        'title'    => __('Divider', 'divider'),
+        'panel' => 'homepage_panel'
+    ));
+
+    $wp_customize->add_setting('divider_title', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Banco de Voluntariado',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('divider_title', array(
+        'type' => 'text',
+        'section' => 'divider_section',
+        'label' => __('Title')
+    ));
+
+    $wp_customize->add_setting('divider_subtitle', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Queres mudar o mundo?',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('divider_subtitle', array(
+        'type' => 'text',
+        'section' => 'divider_section',
+        'label' => __('Subtitle')
+    ));
+
+    $wp_customize->add_setting(
+        'divider_image',
+        array(
+            'default' => get_template_directory_uri() . '/assets/images/default-divider.png',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'esc_url_raw'
+        )
+    );
+
+    $wp_customize->add_control(new WP_Customize_Image_Control(
+        $wp_customize,
+        'divider_image',
+        array(
+            'label' => __('Image'),
+            'section' => 'divider_section'
+        )
+    ));
+
+    $wp_customize->add_setting('divider_text', array(
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'sanitize_textarea_field'
+    ));
+
+    $wp_customize->add_control('divider_text', array(
+        'type' => 'textarea',
+        'section' => 'divider_section',
+        'label' => __('Description')
+    ));
+
+
+    $wp_customize->add_setting('divider_button_text', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Inscrições',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('divider_button_text', array(
+        'type' => 'text',
+        'section' => 'divider_section',
+        'label' => __('Button Text')
+    ));
+
+    $wp_customize->add_setting('divider_button_url', array(
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control('divider_button_url', array(
+        'type' => 'text',
+        'section' => 'divider_section',
+        'label' => __('Button URL')
+    ));
+
+    $wp_customize->add_setting('divider_show_button', array(
+        'default'    => '1'
+    ));
+
+    $wp_customize->add_control('divider_show_button', array(
+        'type' => 'checkbox',
+        'section' => 'divider_section',
+        'label' => __('Display Button')
+    ));
 }
 add_action('customize_register', 'themevou_customize_register');

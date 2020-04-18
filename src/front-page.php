@@ -21,7 +21,7 @@ get_header(); ?>
             <div class="col-sm-12 col-md-6">
                 <h1><?php echo get_theme_mod('banner_title_text', 'Vem ser VO.U.'); ?></h1>
                 <p class="lead"><?php echo get_theme_mod('banner_description_text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer imperdiet venenatis nisi id vestibulum. Integer gravida ut ipsum vitae tristique.'); ?></p>
-                <?php if (get_theme_mod('banner_show_button'))
+                <?php if (get_theme_mod('banner_show_button', '1'))
                     echo '<button type="button" class="btn btn-primary">' . get_theme_mod('banner_button_text', 'Saber Mais') . '</button>';
                 ?>
             </div>
@@ -32,27 +32,41 @@ get_header(); ?>
     </div>
 </div>
 
-<main class="container-fluid">
-    <div id="about" class="section">
+<main>
+    <div id="about" class="section container-fluid">
         <div class="heading">
             <h2><?php echo get_theme_mod('about_subtitle', 'Os nossos planos') ?></h2>
             <h1><?php echo get_theme_mod('about_title', 'Quem somos') ?></h1>
         </div>
-
         <div class="row">
-            <div class="col-4 d-flex flex-column align-items-center">
+            <div class="col-sm-12 col-md-4 d-flex flex-column align-items-center">
                 <img src="<?php echo esc_url(get_theme_mod('about_image_1', get_template_directory_uri() . '/assets/images/vida.png')); ?>" class="img-fluid" alt="About Image 1">
                 <p><?php echo get_theme_mod('about_text_1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue.'); ?></p>
             </div>
-            <div class="col-4 d-flex flex-column align-items-center">
-                <img src="<?php echo esc_url(get_theme_mod('about_image_2', get_template_directory_uri() . '/assets/images/mundo.png')); ?>" class="img-fluid" alt="Header Image">
+            <div class="col-sm-12 col-md-4 d-flex flex-column align-items-center">
+                <img src="<?php echo esc_url(get_theme_mod('about_image_2', get_template_directory_uri() . '/assets/images/mundo.png')); ?>" class="img-fluid" alt="About Image 2">
                 <p><?php echo get_theme_mod('about_text_2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue.'); ?></p>
             </div>
-            <div class="col-4 d-flex flex-column align-items-center">
-                <img src="<?php echo esc_url(get_theme_mod('about_image_3', get_template_directory_uri() . '/assets/images/ponte.png')); ?>" class="img-fluid" alt="Header Image">
+            <div class="col-sm-12 col-md-4 d-flex flex-column align-items-center">
+                <img src="<?php echo esc_url(get_theme_mod('about_image_3', get_template_directory_uri() . '/assets/images/ponte.png')); ?>" class="img-fluid" alt="About Image 3">
                 <p><?php echo get_theme_mod('about_text_3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue.'); ?></p>
             </div>
-
+        </div>
+    </div>
+    <div id="divider" class="section">
+        <div class="row">
+            <div class="col-sm-12 col-md-6" style="background-image: url('<?php echo esc_url(get_theme_mod('divider_image', get_template_directory_uri() . '/assets/images/default-divider.png')); ?>');">
+            </div>
+            <div class="col-sm-12 col-md-6 d-flex flex-column justify-content-center align-items-start">
+                <div class="heading">
+                    <h2><?php echo get_theme_mod('divider_subtitle', 'Queres mudar o mundo?') ?></h2>
+                    <h1><?php echo get_theme_mod('divider_title', 'Banco de Voluntariado') ?></h1>
+                </div>
+                <p><?php echo get_theme_mod('divider_text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue.'); ?></p>
+                <?php if (get_theme_mod('divider_show_button', '1'))
+                    echo '<button type="button" class="btn btn-primary">' . get_theme_mod('divider_button_text', 'Inscrições') . '</button>';
+                ?>
+            </div>
         </div>
     </div>
 </main>

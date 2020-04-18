@@ -1,5 +1,5 @@
 .section {
-  padding: 3em 0;
+  padding: 4em 0;
 }
 
 #about {
@@ -9,5 +9,37 @@
   p {
     text-align: center;
     margin-top: 2em;
+  }
+
+  @media (max-width: 767.98px) {
+    [class*="col-"] {
+      &:not(:last-child) {
+        margin-bottom: 4em;
+      }
+    }
+  }
+}
+
+#divider {
+  .heading {
+    padding-bottom: 1.5em;
+  }
+  button {
+    margin-top: 1em;
+  }
+  .row {
+    min-height: 50vh;
+  }
+  [class*="col-"] {
+    padding: 0;
+    &:first-child {
+      min-height: 50vh;
+      background: no-repeat center center;
+      background-size: cover;
+    }
+    &:last-child {
+      background-color: $grey-color;
+      padding: 4em 4em;
+    }
   }
 }
