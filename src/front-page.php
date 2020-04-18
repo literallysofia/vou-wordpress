@@ -22,7 +22,7 @@ get_header(); ?>
                 <h1><?php echo get_theme_mod('banner_title_text', 'Vem ser VO.U.'); ?></h1>
                 <p class="lead"><?php echo get_theme_mod('banner_description_text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer imperdiet venenatis nisi id vestibulum. Integer gravida ut ipsum vitae tristique.'); ?></p>
                 <?php if (get_theme_mod('banner_show_button', '1'))
-                    echo '<button type="button" class="btn btn-primary">' . get_theme_mod('banner_button_text', 'Saber Mais') . '</button>';
+                    echo '<a class="btn btn-primary" href="' . get_theme_mod('banner_button_url', '#') . '" role="button">' . get_theme_mod('banner_button_text', 'Saber Mais') . '</a>';
                 ?>
             </div>
             <div class="col-sm-12 col-md-6">
@@ -64,7 +64,7 @@ get_header(); ?>
                 </div>
                 <p><?php echo get_theme_mod('divider_text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue.'); ?></p>
                 <?php if (get_theme_mod('divider_show_button', '1'))
-                    echo '<button type="button" class="btn btn-primary">' . get_theme_mod('divider_button_text', 'Inscrições') . '</button>';
+                    echo '<a class="btn btn-primary" href="' . get_theme_mod('divider_button_url', '#') . '" role="button">' . get_theme_mod('divider_button_text', 'Inscrições') . '</a>';
                 ?>
             </div>
         </div>
