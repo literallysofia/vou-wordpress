@@ -29,6 +29,7 @@ $transition: all 0.4s ease-out;
 
 @import "header";
 @import "hero";
+@import "sections";
 @import "footer";
 
 body {
@@ -37,12 +38,8 @@ body {
 }
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Space Mono", "Lucida Console", Monaco, monospace;
+h2 {
+  font-weight: bold;
 }
 
 button {
@@ -71,5 +68,21 @@ button {
   &:hover {
     background: $hover-color;
     color: white;
+  }
+}
+
+.heading {
+  padding-bottom: 3em;
+  h1 {
+    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    margin-top: 0.5em;
+  }
+
+  h2 {
+    font-family: "Space Mono", "Lucida Console", Monaco, monospace;
+    font-size: 1.4em;
+    font-style: italic;
+    color: $main-color;
   }
 }
