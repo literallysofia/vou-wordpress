@@ -423,5 +423,171 @@ function themevou_customize_register($wp_customize)
         'section' => 'divider_section',
         'label' => __('Display Button')
     ));
+
+    // PROJECTS
+    $wp_customize->add_section('projects_section', array(
+        'title'    => __('Projects', 'projects'),
+        'panel' => 'homepage_panel'
+    ));
+
+    $wp_customize->add_setting('projects_title', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Projetos',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('projects_title', array(
+        'type' => 'text',
+        'section' => 'projects_section',
+        'label' => __('Title')
+    ));
+
+    $wp_customize->add_setting('projects_subtitle', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Os nossos projetos',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('projects_subtitle', array(
+        'type' => 'text',
+        'section' => 'projects_section',
+        'label' => __('Subtitle')
+    ));
+
+    $wp_customize->add_setting(
+        'projects_image',
+        array(
+            'default' => get_template_directory_uri() . '/assets/images/default-projects.png',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'esc_url_raw'
+        )
+    );
+
+    $wp_customize->add_control(new WP_Customize_Image_Control(
+        $wp_customize,
+        'projects_image',
+        array(
+            'label' => __('Image'),
+            'section' => 'projects_section'
+        )
+    ));
+
+    $wp_customize->add_setting('projects_text', array(
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'sanitize_textarea_field'
+    ));
+
+    $wp_customize->add_control('projects_text', array(
+        'type' => 'textarea',
+        'section' => 'projects_section',
+        'label' => __('Description')
+    ));
+
+
+    $wp_customize->add_setting('projects_button_text', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Ver Todos',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('projects_button_text', array(
+        'type' => 'text',
+        'section' => 'projects_section',
+        'label' => __('Button Text')
+    ));
+
+    $wp_customize->add_setting('projects_button_url', array(
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control('projects_button_url', array(
+        'type' => 'text',
+        'section' => 'projects_section',
+        'label' => __('Button URL')
+    ));
+
+    // DEPARTMENTS
+    $wp_customize->add_section('dep_section', array(
+        'title'    => __('Departments', 'departments'),
+        'panel' => 'homepage_panel'
+    ));
+
+    $wp_customize->add_setting('dep_title', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Núcleos',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('dep_title', array(
+        'type' => 'text',
+        'section' => 'dep_section',
+        'label' => __('Title')
+    ));
+
+    $wp_customize->add_setting('dep_subtitle', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Os nossos núcleos',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('dep_subtitle', array(
+        'type' => 'text',
+        'section' => 'dep_section',
+        'label' => __('Subtitle')
+    ));
+
+    $wp_customize->add_setting(
+        'dep_image',
+        array(
+            'default' => get_template_directory_uri() . '/assets/images/default-dep.png',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'esc_url_raw'
+        )
+    );
+
+    $wp_customize->add_control(new WP_Customize_Image_Control(
+        $wp_customize,
+        'dep_image',
+        array(
+            'label' => __('Image'),
+            'section' => 'dep_section'
+        )
+    ));
+
+    $wp_customize->add_setting('dep_text', array(
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'sanitize_textarea_field'
+    ));
+
+    $wp_customize->add_control('dep_text', array(
+        'type' => 'textarea',
+        'section' => 'dep_section',
+        'label' => __('Description')
+    ));
+
+
+    $wp_customize->add_setting('dep_button_text', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Ver Todos',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('dep_button_text', array(
+        'type' => 'text',
+        'section' => 'dep_section',
+        'label' => __('Button Text')
+    ));
+
+    $wp_customize->add_setting('dep_button_url', array(
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control('dep_button_url', array(
+        'type' => 'text',
+        'section' => 'dep_section',
+        'label' => __('Button URL')
+    ));
 }
 add_action('customize_register', 'themevou_customize_register');

@@ -74,6 +74,42 @@ get_header(); ?>
             </div>
         </div>
     </div>
+    <div class="section container-fluid">
+        <div id="projects" class="left">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="image-container">
+                        <img src="<?php echo esc_url(get_theme_mod('projects_image', get_template_directory_uri() . '/assets/images/default-projects.png')); ?>" class="img-fluid" alt="Projects Image">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="heading">
+                        <h2><?php echo get_theme_mod('projects_subtitle', 'Os nossos projetos') ?></h2>
+                        <h1><?php echo get_theme_mod('projects_title', 'Projetos') ?></h1>
+                    </div>
+                    <p><?php echo get_theme_mod('projects_text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue.'); ?></p>
+                    <a class="btn btn-primary" href="<?php echo get_theme_mod('projects_button_url', '#'); ?>" role="button"><?php echo get_theme_mod('projects_button_text', 'Ver Todos'); ?></a>
+                </div>
+            </div>
+        </div>
+        <div id="projects" class="right">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="heading">
+                        <h2><?php echo get_theme_mod('dep_subtitle', 'Os nossos núcleos') ?></h2>
+                        <h1><?php echo get_theme_mod('dep_title', 'Núcleos') ?></h1>
+                    </div>
+                    <p><?php echo get_theme_mod('dep_text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue.'); ?></p>
+                    <a class="btn btn-primary" href="<?php echo get_theme_mod('dep_button_url', '#'); ?>" role="button"><?php echo get_theme_mod('dep_button_text', 'Ver Todos'); ?></a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="image-container">
+                        <img src="<?php echo esc_url(get_theme_mod('dep_image', get_template_directory_uri() . '/assets/images/default-dep.png')); ?>" class="img-fluid" alt="Departments Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 <?php
