@@ -704,5 +704,17 @@ function themevou_customize_register($wp_customize)
         'section' => 'news_section',
         'label' => __('Subtitle')
     ));
+
+    $wp_customize->add_setting('news_button_text', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Ver Mais',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('news_button_text', array(
+        'type' => 'text',
+        'section' => 'news_section',
+        'label' => __('Button Text')
+    ));
 }
 add_action('customize_register', 'themevou_customize_register');

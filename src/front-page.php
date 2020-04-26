@@ -132,9 +132,13 @@ get_header(); ?>
         </div>
     </div>
     <div id="news" class="section container-fluid">
-        <div class="heading">
-            <h2><?php echo get_theme_mod('news_subtitle', 'Últimas novidades') ?></h2>
-            <h1><?php echo get_theme_mod('news_title', 'Notícias') ?></h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="heading">
+                <h2><?php echo get_theme_mod('news_subtitle', 'Últimas novidades') ?></h2>
+                <h1><?php echo get_theme_mod('news_title', 'Notícias') ?></h1>
+            </div>
+            <a class="btn btn-primary" href="<?php echo '#'; ?>" role="button"><?php echo get_theme_mod('news_button_text', 'Ver Mais'); ?></a>
+
         </div>
     </div>
 </main>
