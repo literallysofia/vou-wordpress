@@ -16,6 +16,7 @@ add_action('wp_enqueue_scripts', 'themevou_enqueue_styles');
 function themevou_enqueue_scripts()
 {
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.bundle.min.js', array('jquery'));
+    wp_enqueue_script('script', get_template_directory_uri() . '/assets/js/scripts.js', array(), '', true);
 }
 add_action('wp_enqueue_scripts', 'themevou_enqueue_scripts');
 
@@ -589,5 +590,111 @@ function themevou_customize_register($wp_customize)
         'section' => 'dep_section',
         'label' => __('Button URL')
     ));
+
+    // COUNTER
+    $wp_customize->add_section('counter_section', array(
+        'title'    => __('Counter', 'counter'),
+        'panel' => 'homepage_panel'
+    ));
+
+    $wp_customize->add_setting('counter_title_1', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Projetos',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('counter_title_1', array(
+        'type' => 'text',
+        'section' => 'counter_section',
+        'label' => __('First Title'),
+        'description' => __('An item for the first column.')
+    ));
+
+    $wp_customize->add_setting('counter_number_1', array(
+        'capability' => 'edit_theme_options',
+        'default' => '0',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('counter_number_1', array(
+        'type' => 'number',
+        'section' => 'counter_section',
+        'label' => __('First Total'),
+        'description' => __('The total number of items.')
+    ));
+
+    $wp_customize->add_setting('counter_title_2', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Núcleos',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('counter_title_2', array(
+        'type' => 'text',
+        'section' => 'counter_section',
+        'label' => __('Second Title'),
+        'description' => __('An item for the second column.')
+    ));
+
+    $wp_customize->add_setting('counter_number_2', array(
+        'capability' => 'edit_theme_options',
+        'default' => '0',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('counter_number_2', array(
+        'type' => 'number',
+        'section' => 'counter_section',
+        'label' => __('Second Total'),
+        'description' => __('The total number of items.')
+    ));
+
+    $wp_customize->add_setting('counter_title_3', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Voluntários',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('counter_title_3', array(
+        'type' => 'text',
+        'section' => 'counter_section',
+        'label' => __('Third Title'),
+        'description' => __('An item for the third column.')
+    ));
+
+    $wp_customize->add_setting('counter_number_3', array(
+        'capability' => 'edit_theme_options',
+        'default' => '0',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('counter_number_3', array(
+        'type' => 'number',
+        'section' => 'counter_section',
+        'label' => __('Third Total'),
+        'description' => __('The total number of items.')
+    ));
+
+/*     $wp_customize->add_setting(
+        'sample_tinymce_editor',
+        array(
+            'default' => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'wp_kses_post'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control(
+        $wp_customize,
+        'sample_tinymce_editor',
+        array(
+            'label' => __('TinyMCE Control'),
+            'description' => __('This is a TinyMCE Editor Custom Control'),
+            'section' => 'counter_section',
+            'input_attrs' => array(
+                'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
+                'mediaButtons' => true,
+            )
+        )
+    )); */
 }
 add_action('customize_register', 'themevou_customize_register');

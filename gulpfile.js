@@ -17,6 +17,7 @@ const // source and build folders
   concat = require("gulp-concat"),
   stripdebug = require("gulp-strip-debug"),
   uglify = require("gulp-uglify"),
+  babel = require("gulp-babel"),
   browsersync = require("browser-sync").create(),
   del = require("del");
 
@@ -84,12 +85,7 @@ const cssOpts = {
 
 // Task: CSS processing
 function css() {
-  return gulp
-    .src(cssOpts.src)
-    .pipe(sass(cssOpts.sassOpts))
-    .pipe(postcss(cssOpts.processors))
-    .pipe(gulp.dest(cssOpts.build))
-    .pipe(browsersync.stream());
+  return gulp.src(cssOpts.src).pipe(sass(cssOpts.sassOpts)).pipe(postcss(cssOpts.processors)).pipe(gulp.dest(cssOpts.build)).pipe(browsersync.stream());
 }
 exports.css = gulp.series(images, bootstrap, css);
 
@@ -107,6 +103,11 @@ function js() {
     .pipe(deporder())
     .pipe(concat(jsOpts.filename))
     .pipe(stripdebug())
+    .pipe(
+      babel({
+        presets: ["@babel/env"],
+      })
+    )
     .pipe(uglify())
     .pipe(gulp.dest(jsOpts.build))
     .pipe(browsersync.stream());
@@ -115,13 +116,7 @@ exports.js = js;
 
 // Task: delete built files
 function clean() {
-  var dirs = [
-    dir.build + "*.php",
-    dir.build + "style.css",
-    dir.build + "partials",
-    dir.build + "templates",
-    dir.build + "assets",
-  ];
+  var dirs = [dir.build + "*.php", dir.build + "style.css", dir.build + "partials", dir.build + "templates", dir.build + "assets"];
   return del(dirs);
 }
 exports.clean = clean;

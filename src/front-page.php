@@ -110,6 +110,28 @@ get_header(); ?>
             </div>
         </div>
     </div>
+    <div id="counter" class="section">
+        <div class="counter-container">
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <i class="fas fa-briefcase"></i>
+                    <h1 class="counter-number" value="<?php echo get_theme_mod('counter_number_1', '20') ?>">0</h1>
+                    <span><?php echo get_theme_mod('counter_title_1', 'Projetos') ?></span>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <i class="fas fa-hands-helping"></i>
+                    <h1 class="counter-number" value="<?php echo get_theme_mod('counter_number_2', '5') ?>">0</h1>
+                    <span><?php echo get_theme_mod('counter_title_2', 'Núcleos') ?></span>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <i class="fas fa-heart"></i>
+                    <h1 class="counter-number" value="<?php echo get_theme_mod('counter_number_3', '2000') ?>">0</h1>
+                    <span><?php echo get_theme_mod('counter_title_3', 'Voluntários') ?></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </main>
 
 <?php

@@ -1,5 +1,6 @@
 .section {
   padding: 4em 0;
+  overflow-x: hidden;
 }
 
 #about {
@@ -85,6 +86,39 @@
     }
     &.right [class*="col-"]:last-child {
       margin-top: 6em;
+    }
+  }
+}
+
+#counter {
+  text-align: center;
+  .counter-container {
+    background: $grey-color;
+    padding: 4.5em 0;
+  }
+  h1 {
+    font-size: 3em;
+  }
+  span {
+    font-family: "Space Mono", "Lucida Console", Monaco, monospace;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-style: italic;
+  }
+  i {
+    color: $main-color;
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  [class*="col-"] {
+    padding: 0;
+    &:not(:last-child) {
+      border-right: 1px solid black;
+    }
+  }
+  @media (max-width: 767.98px) {
+    [class*="col-"]:not(:first-child) {
+      margin-top: 3em;
     }
   }
 }
