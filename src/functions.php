@@ -675,26 +675,34 @@ function themevou_customize_register($wp_customize)
         'description' => __('The total number of items.')
     ));
 
-/*     $wp_customize->add_setting(
-        'sample_tinymce_editor',
-        array(
-            'default' => '',
-            'transport' => 'postMessage',
-            'sanitize_callback' => 'wp_kses_post'
-        )
-    );
-    $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control(
-        $wp_customize,
-        'sample_tinymce_editor',
-        array(
-            'label' => __('TinyMCE Control'),
-            'description' => __('This is a TinyMCE Editor Custom Control'),
-            'section' => 'counter_section',
-            'input_attrs' => array(
-                'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
-                'mediaButtons' => true,
-            )
-        )
-    )); */
+    // NEWS
+    $wp_customize->add_section('news_section', array(
+        'title'    => __('News', 'news'),
+        'panel' => 'homepage_panel'
+    ));
+
+    $wp_customize->add_setting('news_title', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Notícias',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('news_title', array(
+        'type' => 'text',
+        'section' => 'news_section',
+        'label' => __('Title')
+    ));
+
+    $wp_customize->add_setting('news_subtitle', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Últimas novidades',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('news_subtitle', array(
+        'type' => 'text',
+        'section' => 'news_section',
+        'label' => __('Subtitle')
+    ));
 }
 add_action('customize_register', 'themevou_customize_register');

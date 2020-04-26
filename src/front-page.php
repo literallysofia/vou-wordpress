@@ -130,7 +130,12 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-
+    </div>
+    <div id="news" class="section container-fluid">
+        <div class="heading">
+            <h2><?php echo get_theme_mod('news_subtitle', 'Últimas novidades') ?></h2>
+            <h1><?php echo get_theme_mod('news_title', 'Notícias') ?></h1>
+        </div>
     </div>
 </main>
 
