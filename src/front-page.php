@@ -132,13 +132,33 @@ get_header(); ?>
         </div>
     </div>
     <div id="news" class="section container-fluid">
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center flex-wrap">
             <div class="heading">
                 <h2><?php echo get_theme_mod('news_subtitle', 'Últimas novidades') ?></h2>
                 <h1><?php echo get_theme_mod('news_title', 'Notícias') ?></h1>
             </div>
             <a class="btn btn-primary" href="<?php echo '#'; ?>" role="button"><?php echo get_theme_mod('news_button_text', 'Ver Mais'); ?></a>
-
+        </div>
+    </div>
+    <div id="newsletter" class="section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 col-lg-6 col-xl-7">
+                    <h1><?php echo get_theme_mod('nletter_title', 'Junta-te à nossa newsletter') ?></h1>
+                    <span><?php echo get_theme_mod('nletter_description', 'Sê o primeiro a receber as últimas novidades e muito mais!') ?></span>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-5">
+                    <form class="d-flex align-items-center justify-content-end">
+                        <div class="form-group flex-fill">
+                            <label for="inputNewsletter" class="sr-only">Email</label>
+                            <input type="email" class="form-control" id="inputNewsletter" placeholder="<?php echo get_theme_mod('nletter_input_text', 'Insere aqui o teu email') ?>">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Subscrever</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </main>

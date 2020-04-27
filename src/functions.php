@@ -716,5 +716,47 @@ function themevou_customize_register($wp_customize)
         'section' => 'news_section',
         'label' => __('Button Text')
     ));
+
+    // NEWSLETTER
+    $wp_customize->add_section('nletter_section', array(
+        'title'    => __('Newsletter', 'newsletter'),
+        'panel' => 'homepage_panel'
+    ));
+
+    $wp_customize->add_setting('nletter_title', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Junta-te à nossa newsletter',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('nletter_title', array(
+        'type' => 'text',
+        'section' => 'nletter_section',
+        'label' => __('Title')
+    ));
+
+    $wp_customize->add_setting('nletter_description', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Sê o primeiro a receber as últimas novidades e muito mais!',
+        'sanitize_callback' => 'sanitize_textarea_field'
+    ));
+
+    $wp_customize->add_control('nletter_description', array(
+        'type' => 'textarea',
+        'section' => 'nletter_section',
+        'label' => __('Description')
+    ));
+
+    $wp_customize->add_setting('nletter_input_text', array(
+        'capability' => 'edit_theme_options',
+        'default' => 'Insere aqui o teu email',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    $wp_customize->add_control('nletter_input_text', array(
+        'type' => 'text',
+        'section' => 'nletter_section',
+        'label' => __('Input Placeholder')
+    ));
 }
 add_action('customize_register', 'themevou_customize_register');

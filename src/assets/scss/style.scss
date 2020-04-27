@@ -71,6 +71,13 @@ button {
   }
 }
 
+input.form-control {
+  border-color: $main-color;
+  border-radius: 25px;
+  padding: 0 2em;
+  height: 40px;
+}
+
 .heading {
   padding-bottom: 1.5em;
   h1 {
