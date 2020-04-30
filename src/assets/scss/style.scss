@@ -71,11 +71,20 @@ button {
   }
 }
 
-input.form-control {
+input.form-control,
+textarea.form-control {
   border-color: $main-color;
   border-radius: 25px;
-  padding: 0 2em;
+}
+
+input.form-control {
   height: 40px;
+  padding: 0 2em;
+}
+
+textarea.form-control {
+  resize: none;
+  padding: 0.5em 2em;
 }
 
 .heading {

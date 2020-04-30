@@ -161,6 +161,58 @@ get_header(); ?>
             </div>
         </div>
     </div>
+    <div id="contact" class="section container-fluid">
+        <div class="heading">
+            <h2><?php echo get_theme_mod('contact_subtitle', 'Fala Connosco') ?></h2>
+            <h1><?php echo get_theme_mod('contact_title', 'Contactos') ?></h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <form>
+                    <div class="form-group">
+                        <label for="inputName" class="sr-only">Nome</label>
+                        <input type="text" class="form-control" id="inputName" placeholder="Nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail" class="sr-only">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputMessage" class="sr-only">Mensagem</label>
+                        <textarea class="form-control" id="inputMessage" rows="7" placeholder="Mensagem"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <?php if (get_theme_mod('contact_map')) : ?>
+                    <div id="map">
+                        <?php echo do_shortcode(get_theme_mod('contact_map')) ?>
+                    </div>
+                <?php endif; ?>
+                <div class="contacts">
+                    <?php if (get_theme_mod('contact_address')) : ?>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p><?php echo get_theme_mod('contact_address') ?></p>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (get_theme_mod('contact_email')) : ?>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-envelope"></i>
+                            <p><?php echo get_theme_mod('contact_email') ?></p>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (get_theme_mod('contact_phone')) : ?>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-phone"></i>
+                            <p><?php echo get_theme_mod('contact_phone') ?></p>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 <?php
