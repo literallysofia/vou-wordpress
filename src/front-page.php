@@ -21,27 +21,29 @@ get_header(); ?>
             <div class="col-sm-12 col-md-6">
                 <h1><?php echo get_theme_mod('banner_title_text', 'Vem ser VO.U.'); ?></h1>
                 <p class="lead"><?php echo get_theme_mod('banner_description_text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer imperdiet venenatis nisi id vestibulum. Integer gravida ut ipsum vitae tristique.'); ?></p>
-                <?php if (get_theme_mod('banner_show_button', '1'))
-                    echo '<a class="btn btn-primary" href="' . get_theme_mod('banner_button_url', '#') . '" role="button">' . get_theme_mod('banner_button_text', 'Saber Mais') . '</a>';
-                ?>
+                <?php if (get_theme_mod('banner_show_button', '1')) : ?>
+                    <a class="btn btn-primary" href="<?php echo get_theme_mod('banner_button_url', '#'); ?>" role="button"><?php echo get_theme_mod('banner_button_text', 'Inscrições'); ?></a>
+                <?php endif; ?>
             </div>
             <div class="col-sm-12 col-md-6">
                 <img src="<?php header_image(); ?>" class="img-fluid" alt="Header Image">
             </div>
         </div>
     </div>
-    <div class="scroll-downs">
-        <div class="mousey">
-            <div class="scroller"></div>
+    <?php if (get_theme_mod('banner_show_mouse', '1')) : ?>
+        <div class="scroll-downs">
+            <div class="mousey">
+                <div class="scroller"></div>
+            </div>
         </div>
-    </div>
+    <?php endif; ?>
 </div>
 
 <main>
     <div id="about" class="section container-fluid">
         <div class="heading">
-            <h2><?php echo get_theme_mod('about_subtitle', 'Os nossos planos') ?></h2>
-            <h1><?php echo get_theme_mod('about_title', 'Quem somos') ?></h1>
+            <h2><?php echo get_theme_mod('about_subtitle', 'Os nossos planos'); ?></h2>
+            <h1><?php echo get_theme_mod('about_title', 'Quem somos'); ?></h1>
         </div>
         <div class="row">
             <div class="col-sm-12 col-md-4 d-flex flex-column align-items-center">
@@ -64,13 +66,13 @@ get_header(); ?>
             </div>
             <div class="col-sm-12 col-md-6 d-flex flex-column justify-content-center align-items-start">
                 <div class="heading">
-                    <h2><?php echo get_theme_mod('divider_subtitle', 'Queres mudar o mundo?') ?></h2>
-                    <h1><?php echo get_theme_mod('divider_title', 'Banco de Voluntariado') ?></h1>
+                    <h2><?php echo get_theme_mod('divider_subtitle', 'Queres mudar o mundo?'); ?></h2>
+                    <h1><?php echo get_theme_mod('divider_title', 'Banco de Voluntariado'); ?></h1>
                 </div>
                 <p><?php echo get_theme_mod('divider_text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue.'); ?></p>
-                <?php if (get_theme_mod('divider_show_button', '1'))
-                    echo '<a class="btn btn-primary" href="' . get_theme_mod('divider_button_url', '#') . '" role="button">' . get_theme_mod('divider_button_text', 'Inscrições') . '</a>';
-                ?>
+                <?php if (get_theme_mod('divider_show_button', '1')) : ?>
+                    <a class="btn btn-primary" href="<?php echo get_theme_mod('divider_button_url', '#'); ?>" role="button"><?php echo get_theme_mod('divider_button_text', 'Inscrições'); ?></a>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -84,8 +86,8 @@ get_header(); ?>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div class="heading">
-                        <h2><?php echo get_theme_mod('projects_subtitle', 'Os nossos projetos') ?></h2>
-                        <h1><?php echo get_theme_mod('projects_title', 'Projetos') ?></h1>
+                        <h2><?php echo get_theme_mod('projects_subtitle', 'Os nossos projetos'); ?></h2>
+                        <h1><?php echo get_theme_mod('projects_title', 'Projetos'); ?></h1>
                     </div>
                     <p><?php echo get_theme_mod('projects_text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue.'); ?></p>
                     <a class="btn btn-primary" href="<?php echo get_theme_mod('projects_button_url', '#'); ?>" role="button"><?php echo get_theme_mod('projects_button_text', 'Ver Todos'); ?></a>
@@ -96,8 +98,8 @@ get_header(); ?>
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <div class="heading">
-                        <h2><?php echo get_theme_mod('dep_subtitle', 'Os nossos núcleos') ?></h2>
-                        <h1><?php echo get_theme_mod('dep_title', 'Núcleos') ?></h1>
+                        <h2><?php echo get_theme_mod('dep_subtitle', 'Os nossos núcleos'); ?></h2>
+                        <h1><?php echo get_theme_mod('dep_title', 'Núcleos'); ?></h1>
                     </div>
                     <p><?php echo get_theme_mod('dep_text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue.'); ?></p>
                     <a class="btn btn-primary" href="<?php echo get_theme_mod('dep_button_url', '#'); ?>" role="button"><?php echo get_theme_mod('dep_button_text', 'Ver Todos'); ?></a>
@@ -115,18 +117,18 @@ get_header(); ?>
             <div class="row">
                 <div class="col-sm-12 col-md-4">
                     <i class="fas fa-briefcase"></i>
-                    <h1 class="counter-number" value="<?php echo get_theme_mod('counter_number_1', '20') ?>">0</h1>
-                    <span><?php echo get_theme_mod('counter_title_1', 'Projetos') ?></span>
+                    <h1 class="counter-number" value="<?php echo get_theme_mod('counter_number_1', '20'); ?>">0</h1>
+                    <span><?php echo get_theme_mod('counter_title_1', 'Projetos'); ?></span>
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <i class="fas fa-hands-helping"></i>
-                    <h1 class="counter-number" value="<?php echo get_theme_mod('counter_number_2', '5') ?>">0</h1>
-                    <span><?php echo get_theme_mod('counter_title_2', 'Núcleos') ?></span>
+                    <h1 class="counter-number" value="<?php echo get_theme_mod('counter_number_2', '5'); ?>">0</h1>
+                    <span><?php echo get_theme_mod('counter_title_2', 'Núcleos'); ?></span>
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <i class="fas fa-heart"></i>
-                    <h1 class="counter-number" value="<?php echo get_theme_mod('counter_number_3', '2000') ?>">0</h1>
-                    <span><?php echo get_theme_mod('counter_title_3', 'Voluntários') ?></span>
+                    <h1 class="counter-number" value="<?php echo get_theme_mod('counter_number_3', '2000'); ?>">0</h1>
+                    <span><?php echo get_theme_mod('counter_title_3', 'Voluntários'); ?></span>
                 </div>
             </div>
         </div>
@@ -134,8 +136,8 @@ get_header(); ?>
     <div id="news" class="section container-fluid">
         <div class="d-flex justify-content-between align-items-center flex-wrap">
             <div class="heading">
-                <h2><?php echo get_theme_mod('news_subtitle', 'Últimas novidades') ?></h2>
-                <h1><?php echo get_theme_mod('news_title', 'Notícias') ?></h1>
+                <h2><?php echo get_theme_mod('news_subtitle', 'Últimas novidades'); ?></h2>
+                <h1><?php echo get_theme_mod('news_title', 'Notícias'); ?></h1>
             </div>
             <a class="btn btn-primary" href="<?php echo '#'; ?>" role="button"><?php echo get_theme_mod('news_button_text', 'Ver Mais'); ?></a>
         </div>
@@ -144,14 +146,14 @@ get_header(); ?>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 col-lg-6 col-xl-7">
-                    <h1><?php echo get_theme_mod('nletter_title', 'Junta-te à nossa newsletter') ?></h1>
-                    <span><?php echo get_theme_mod('nletter_description', 'Sê o primeiro a receber as últimas novidades e muito mais!') ?></span>
+                    <h1><?php echo get_theme_mod('nletter_title', 'Junta-te à nossa newsletter'); ?></h1>
+                    <span><?php echo get_theme_mod('nletter_description', 'Sê o primeiro a receber as últimas novidades e muito mais!'); ?></span>
                 </div>
                 <div class="col-md-12 col-lg-6 col-xl-5">
                     <form class="d-flex align-items-center justify-content-end">
                         <div class="form-group flex-fill">
                             <label for="inputNewsletter" class="sr-only">Email</label>
-                            <input type="email" class="form-control" id="inputNewsletter" placeholder="<?php echo get_theme_mod('nletter_input_text', 'Insere aqui o teu email') ?>">
+                            <input type="email" class="form-control" id="inputNewsletter" placeholder="<?php echo get_theme_mod('nletter_input_text', 'Insere aqui o teu email'); ?>">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Subscrever</button>
@@ -163,8 +165,8 @@ get_header(); ?>
     </div>
     <div id="contact" class="section container-fluid">
         <div class="heading">
-            <h2><?php echo get_theme_mod('contact_subtitle', 'Fala Connosco') ?></h2>
-            <h1><?php echo get_theme_mod('contact_title', 'Contactos') ?></h1>
+            <h2><?php echo get_theme_mod('contact_subtitle', 'Fala Connosco'); ?></h2>
+            <h1><?php echo get_theme_mod('contact_title', 'Contactos'); ?></h1>
         </div>
         <div class="row">
             <div class="col-sm-12 col-md-6">
@@ -187,26 +189,26 @@ get_header(); ?>
             <div class="col-sm-12 col-md-6">
                 <?php if (get_theme_mod('contact_map')) : ?>
                     <div id="map">
-                        <?php echo do_shortcode(get_theme_mod('contact_map')) ?>
+                        <?php echo do_shortcode(get_theme_mod('contact_map')); ?>
                     </div>
                 <?php endif; ?>
                 <div class="contacts">
                     <?php if (get_theme_mod('contact_address')) : ?>
                         <div class="d-flex align-items-center">
                             <i class="fas fa-map-marker-alt"></i>
-                            <p><?php echo get_theme_mod('contact_address') ?></p>
+                            <p><?php echo get_theme_mod('contact_address'); ?></p>
                         </div>
                     <?php endif; ?>
                     <?php if (get_theme_mod('contact_email')) : ?>
                         <div class="d-flex align-items-center">
                             <i class="fas fa-envelope"></i>
-                            <p><?php echo get_theme_mod('contact_email') ?></p>
+                            <p><?php echo get_theme_mod('contact_email'); ?></p>
                         </div>
                     <?php endif; ?>
                     <?php if (get_theme_mod('contact_phone')) : ?>
                         <div class="d-flex align-items-center">
                             <i class="fas fa-phone"></i>
-                            <p><?php echo get_theme_mod('contact_phone') ?></p>
+                            <p><?php echo get_theme_mod('contact_phone'); ?></p>
                         </div>
                     <?php endif; ?>
                 </div>

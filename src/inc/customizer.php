@@ -15,7 +15,7 @@ function themevou_customize_register($wp_customize)
 	$wp_customize->add_panel(
 		'homepage_panel',
 		array(
-			'title' => __('Homepage'),
+			'title' => __('Homepage Sections'),
 			'description' => __('Customize your front page.'),
 			'priority' => 50
 		)
@@ -83,6 +83,16 @@ function themevou_customize_register($wp_customize)
 		'type' => 'checkbox',
 		'section' => 'banner_section',
 		'label' => __('Display Button')
+	));
+
+	$wp_customize->add_setting('banner_show_mouse', array(
+		'default'    => '1'
+	));
+
+	$wp_customize->add_control('banner_show_mouse', array(
+		'type' => 'checkbox',
+		'section' => 'banner_section',
+		'label' => __('Display Mouse Animation')
 	));
 
 	// FOOTER
@@ -750,28 +760,20 @@ function themevou_customize_register($wp_customize)
 		'description' => __('Embed map code.')
 	));
 
-	$wp_customize->add_setting(
-		'contact_address',
-		array(
-			'transport' => 'postMessage',
-			'sanitize_callback' => 'wp_kses_post'
-		)
-	);
-	$wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control(
-		$wp_customize,
-		'contact_address',
-		array(
-			'label' => __('Address'),
-			'section' => 'contact_section',
-			'input_attrs' => array(
-				'toolbar1' => 'bold italic link strikethrough'
-			)
-		)
+	$wp_customize->add_setting('contact_address', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'wp_kses_post'
+	));
+
+	$wp_customize->add_control('contact_address', array(
+		'type' => 'textarea',
+		'section' => 'contact_section',
+		'label' => __('Address')
 	));
 
 	$wp_customize->add_setting('contact_email', array(
 		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'sanitize_text_field'
+		'sanitize_callback' => 'sanitize_email'
 	));
 
 	$wp_customize->add_control('contact_email', array(
