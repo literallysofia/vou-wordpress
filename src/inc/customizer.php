@@ -792,5 +792,33 @@ function themevou_customize_register($wp_customize)
 		'section' => 'contact_section',
 		'label' => __('Phone Number')
 	));
+
+	// INSTAGRAM
+	$wp_customize->add_section('insta_section', array(
+		'title'    => __('Instagram', 'instagram'),
+		'panel' => 'homepage_panel'
+	));
+
+	$wp_customize->add_setting('insta_show_button', array(
+		'default'    => '1'
+	));
+
+	$wp_customize->add_control('insta_show_button', array(
+		'type' => 'checkbox',
+		'section' => 'insta_section',
+		'label' => __('Display Instagram Feed')
+	));
+
+	$wp_customize->add_setting('insta_title', array(
+		'capability' => 'edit_theme_options',
+		'default' => 'Segue-nos no Instagram!',
+		'sanitize_callback' => 'sanitize_text_field'
+	));
+
+	$wp_customize->add_control('insta_title', array(
+		'type' => 'text',
+		'section' => 'insta_section',
+		'label' => __('Slogan')
+	));
 }
 add_action('customize_register', 'themevou_customize_register');

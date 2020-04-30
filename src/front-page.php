@@ -215,6 +215,12 @@ get_header(); ?>
             </div>
         </div>
     </div>
+    <?php if (get_theme_mod('insta_show_button', '1')) : ?>
+        <div id="instagram" class="d-flex flex-column">
+            <span><?php echo get_theme_mod('insta_title', 'Segue-nos no Instagram!'); ?></span>
+            <?php echo do_shortcode('[instagram-feed]') ?>
+        </div>
+    <?php endif; ?>
 </main>
 
 <?php
