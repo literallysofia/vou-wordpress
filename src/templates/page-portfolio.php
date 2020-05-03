@@ -53,7 +53,11 @@ get_header(); ?>
                             <div class="row">
                                 <?php while ($project_query->have_posts()) : $project_query->the_post(); ?>
                                     <div class="col-sm-12 col-md-6 project">
-                                        <?php the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid', 'alt' => get_the_title()]); ?>
+                                        <?php
+                                        $color = sanitize_hex_color(get_post_meta(get_the_ID(), 'wp_project_color', true));
+                                        $style = "box-shadow: -25px -25px 0px 0px " .  $color . ";";
+                                        the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid', 'alt' => get_the_title(), 'style' => $style]);
+                                        ?>
                                         <h2><?php the_title(); ?></h2>
                                         <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button">Saber Mais</a>
                                     </div>
