@@ -45,7 +45,7 @@ get_header(); ?>
                     endwhile;
                 endif; ?>
                 <?php if ($email) : ?>
-                    <div class="d-flex align-items-center">
+                    <div class="email d-flex align-items-center">
                         <i class="fas fa-envelope"></i>
                         <span><?php echo $email ?></span>
                     </div>

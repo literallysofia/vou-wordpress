@@ -40,7 +40,7 @@ get_header(); ?>
 </div>
 
 <main id="homepage">
-    <div id="about" class="section container-fluid">
+    <div class="about section container-fluid">
         <div class="heading">
             <h2><?php echo get_theme_mod('about_subtitle', 'Os nossos planos'); ?></h2>
             <h1><?php echo get_theme_mod('about_title', 'Quem somos'); ?></h1>
@@ -60,7 +60,7 @@ get_header(); ?>
             </div>
         </div>
     </div>
-    <div id="divider" class="section">
+    <div class="divider section">
         <div class="row">
             <div class="col-sm-12 col-md-6" style="background-image: url('<?php echo esc_url(get_theme_mod('divider_image', get_template_directory_uri() . '/assets/images/default-divider.png')); ?>');">
             </div>
@@ -76,8 +76,8 @@ get_header(); ?>
             </div>
         </div>
     </div>
-    <div class="section container-fluid">
-        <div id="projects" class="left">
+    <div class="projects section container-fluid">
+        <div class="left">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <div class="image-container">
@@ -94,7 +94,7 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-        <div id="projects" class="right">
+        <div class="right">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <div class="heading">
@@ -112,7 +112,7 @@ get_header(); ?>
             </div>
         </div>
     </div>
-    <div id="counter" class="section">
+    <div class="counter section">
         <div class="counter-container">
             <div class="row">
                 <div class="col-sm-12 col-md-4">
@@ -133,7 +133,7 @@ get_header(); ?>
             </div>
         </div>
     </div>
-    <div id="news" class="section container-fluid">
+    <div class="news section container-fluid">
         <div class="d-flex justify-content-between align-items-center flex-wrap">
             <div class="heading">
                 <h2><?php echo get_theme_mod('news_subtitle', 'Últimas novidades'); ?></h2>
@@ -167,7 +167,7 @@ get_header(); ?>
             <h1><?php echo 'No News' ?></h1>
         <?php endif; ?>
     </div>
-    <div id="newsletter" class="section">
+    <div class="newsletter section">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 col-lg-6 col-xl-7">
@@ -188,7 +188,7 @@ get_header(); ?>
             </div>
         </div>
     </div>
-    <div id="contact" class="section container-fluid">
+    <div class="contact section container-fluid">
         <div class="heading">
             <h2><?php echo get_theme_mod('contact_subtitle', 'Fala Connosco'); ?></h2>
             <h1><?php echo get_theme_mod('contact_title', 'Contactos'); ?></h1>

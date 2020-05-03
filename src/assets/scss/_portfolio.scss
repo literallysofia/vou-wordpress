@@ -1,5 +1,4 @@
 #portfolio {
-  margin-top: 5em !important;
   > div:not(:last-child) {
     margin-bottom: 5em;
   }
@@ -59,6 +58,9 @@
   [class*="col-"] {
     padding-top: 25px;
     padding-left: calc(25px + 1em);
+  }
+  .email {
+    margin-top: 1em;
   }
   i {
     color: $main-color;
