@@ -6,7 +6,7 @@
   }
 }
 
-#about {
+#homepage #about {
   .heading {
     padding-bottom: 3em;
   }
@@ -27,7 +27,7 @@
   }
 }
 
-#divider {
+#homepage #divider {
   button {
     margin-top: 1em;
   }
@@ -48,7 +48,7 @@
   }
 }
 
-#projects {
+#homepage #projects {
   [class*="col-"] {
     &:first-child {
       padding-right: 3em;
@@ -93,7 +93,7 @@
   }
 }
 
-#counter {
+#homepage #counter {
   text-align: center;
   .counter-container {
     background: $grey-color;
@@ -126,7 +126,28 @@
   }
 }
 
-#newsletter {
+#homepage #news {
+  h3 {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+    * {
+      color: $base-color;
+    }
+  }
+  span {
+    color: $main-color;
+    font-family: "Space Mono", "Lucida Console", Monaco, monospace;
+    font-weight: bold;
+    font-style: italic;
+  }
+  @media (max-width: 767.98px) {
+    [class*="col-"]:not(:first-child) {
+      margin-top: 3em;
+    }
+  }
+}
+
+#homepage #newsletter {
   .container-fluid {
     background: $grey-color;
     padding-top: 4.5em;
@@ -164,7 +185,7 @@
   }
 }
 
-#contact {
+#homepage #contact {
   #map {
     height: 300px;
     * {
@@ -195,7 +216,7 @@
   }
 }
 
-#instagram {
+#homepage #instagram {
   margin-top: 2em;
   span {
     font-family: "Space Mono", "Lucida Console", Monaco, monospace;

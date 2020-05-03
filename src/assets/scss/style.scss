@@ -30,21 +30,49 @@ $transition: all 0.4s ease-out;
 @import "header";
 @import "hero";
 @import "sections";
+@import "portfolio";
 @import "footer";
+
+html,
+body {
+  height: 100%;
+}
 
 body {
   font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
   line-height: normal;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
-h2 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: bold;
 }
 
 button {
   border: none !important;
   outline: none !important;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+a {
+  color: $main-color;
+  text-decoration: none !important;
+  &:hover {
+    color: $hover-color;
+  }
+}
+
+footer {
+  flex-shrink: 0;
 }
 
 .container-fluid {
@@ -85,6 +113,10 @@ input.form-control {
 textarea.form-control {
   resize: none;
   padding: 0.5em 2em;
+}
+
+main.page {
+  padding-top: 10em;
 }
 
 .heading {

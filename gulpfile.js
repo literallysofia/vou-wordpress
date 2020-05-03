@@ -23,13 +23,13 @@ const // source and build folders
 
 // PHP settings
 const phpOpts = {
-  src: [dir.src + "**/*.php", dir.src + "inc/**/*.php", dir.src + "partials/**/*.php", dir.src + "templates/**/*.php"],
+  src: [dir.src + "**/*.php", dir.src + "inc/**/*.php", dir.src + "template-parts/**/*.php", dir.src + "templates/**/*.php"],
   build: dir.build,
 };
 
 // Task: copy PHP files
 function php() {
-  let dirs = [phpOpts.build + "*.php", phpOpts.build + "inc", phpOpts.build + "partials", phpOpts.build + "templates"];
+  let dirs = [phpOpts.build + "*.php", phpOpts.build + "inc", phpOpts.build + "template-parts", phpOpts.build + "templates"];
   del(dirs);
   return gulp.src(phpOpts.src).pipe(newer(phpOpts.build)).pipe(gulp.dest(phpOpts.build)).pipe(browsersync.stream());
 }
@@ -44,17 +44,6 @@ const bsOpts = {
 // Task: copy Bootstrap
 function bootstrap() {
   return gulp.src(bsOpts.src).pipe(newer(bsOpts.build)).pipe(gulp.dest(bsOpts.build));
-}
-
-// Customizer settings
-const customOpts = {
-  src: dir.src + "assets/customizer/*",
-  build: dir.build + "assets/customizer/",
-};
-
-// Task: copy Customizer
-function customizer() {
-  return gulp.src(customOpts.src).pipe(newer(customOpts.build)).pipe(gulp.dest(customOpts.build));
 }
 
 // Image settings
@@ -98,7 +87,7 @@ const cssOpts = {
 function css() {
   return gulp.src(cssOpts.src).pipe(sass(cssOpts.sassOpts)).pipe(postcss(cssOpts.processors)).pipe(gulp.dest(cssOpts.build)).pipe(browsersync.stream());
 }
-exports.css = gulp.series(images, bootstrap, customizer, css);
+exports.css = gulp.series(images, bootstrap, css);
 
 // JavaScript settings
 const jsOpts = {
@@ -127,12 +116,12 @@ exports.js = js;
 
 // Task: delete built files
 function clean() {
-  var dirs = [dir.build + "*.php", dir.build + "style.css", dir.build + "inc", dir.build + "partials", dir.build + "templates", dir.build + "assets"];
+  var dirs = [dir.build + "*.php", dir.build + "style.css", dir.build + "inc", dir.build + "template-parts", dir.build + "templates", dir.build + "assets"];
   return del(dirs);
 }
 exports.clean = clean;
 
-const build = gulp.series(clean, gulp.parallel(php, gulp.series(images, bootstrap, customizer, css), js));
+const build = gulp.series(clean, gulp.parallel(php, gulp.series(images, bootstrap, css), js));
 exports.build = build;
 
 // Browsersync options

@@ -1,0 +1,53 @@
+#portfolio {
+  margin-top: 5em !important;
+  > div {
+    margin-bottom: 8em;
+  }
+  .project-grid {
+    padding-left: 5em;
+    [class*="col-"] {
+      padding-top: 25px;
+    }
+  }
+  .project {
+    img {
+      box-shadow: -25px -25px 0px 0px $main-color;
+    }
+    h2 {
+      margin: 1em 0;
+    }
+  }
+  @media (max-width: 767.98px) {
+    .project-type {
+      max-width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    .project-grid {
+      margin-top: 3em;
+      padding: 0 2em;
+    }
+    .project-grid [class*="col-"] {
+      padding-right: 0;
+      padding-left: 25px;
+      &:not(:first-child) {
+        margin-top: 3em;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    .project-grid {
+      [class*="col-"] {
+        &:nth-child(odd) {
+          padding-right: 2em;
+          padding-left: calc(25px + 1em);
+        }
+        &:nth-child(even) {
+          padding-right: 1em;
+          padding-left: calc(25px + 2em);
+        }
+      }
+    }
+  }
+}

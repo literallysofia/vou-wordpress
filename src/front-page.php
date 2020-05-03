@@ -39,7 +39,7 @@ get_header(); ?>
     <?php endif; ?>
 </div>
 
-<main>
+<main id="homepage">
     <div id="about" class="section container-fluid">
         <div class="heading">
             <h2><?php echo get_theme_mod('about_subtitle', 'Os nossos planos'); ?></h2>
@@ -135,34 +135,37 @@ get_header(); ?>
     </div>
     <div id="news" class="section container-fluid">
         <div class="d-flex justify-content-between align-items-center flex-wrap">
-        <?php 
-            // the query
-            $the_query = new WP_Query( array(
-                'posts_per_page' => 3,
-            )); 
-            
-            if ( $the_query->have_posts() ) : 
-            
-            while ( $the_query->have_posts() ) : $the_query->the_post(); 
-            
-            if(has_post_thumbnail()) : 
-                $image = wp_get_attachment_image_src(the_post_thumbnail(), 'thumbnail' ); ?>
-        <?php endif; ?>
-        <div class="card" style="width: 18rem;">
-            <img class="card_img_top" src="<?php echo $image ?>" />
-            <div class="card-body">
-                <h1><?php the_title(); ?></h1>
-                <?php the_excerpt(); ?>
+            <div class="heading">
+                <h2><?php echo get_theme_mod('news_subtitle', 'Últimas novidades'); ?></h2>
+                <h1><?php echo get_theme_mod('news_title', 'Notícias'); ?></h1>
             </div>
+            <a class="btn btn-primary" href="<?php echo '#'; ?>" role="button"><?php echo get_theme_mod('news_button_text', 'Ver Mais'); ?></a>
         </div>
+        <?php
+        $news_query = new WP_Query(array(
+            'posts_per_page' => 3,
+        ));
 
-        <?php endwhile; ?>
-        <?php wp_reset_postdata(); ?>
-
+        if ($news_query->have_posts()) : ?>
+            <div class="row">
+                <?php while ($news_query->have_posts()) : $news_query->the_post(); ?>
+                    <div class="col-sm-12 col-md-4">
+                        <a href="<?php the_permalink(); ?>">
+                            <?php the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid', 'alt' => esc_html(get_the_title())]); ?>
+                        </a>
+                        <h3>
+                            <a href="<?php the_permalink(); ?>">
+                                <?php the_title(); ?>
+                            </a>
+                        </h3>
+                        <span>Publicado em <?php the_date(); ?></span>
+                    </div>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+            </div>
         <?php else : ?>
             <h1><?php echo 'No News' ?></h1>
         <?php endif; ?>
-        </div>
     </div>
     <div id="newsletter" class="section">
         <div class="container-fluid">
@@ -245,5 +248,4 @@ get_header(); ?>
     <?php endif; ?>
 </main>
 
-<?php
-get_footer();
+<?php get_footer(); ?>

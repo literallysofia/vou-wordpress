@@ -10,6 +10,6 @@ Thumbs.db
 /*.css
 /*.php
 /assets
-/partials
 /templates
 /inc
+/template-parts
