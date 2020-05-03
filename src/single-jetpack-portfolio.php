@@ -20,15 +20,23 @@ get_header(); ?>
                 $term = array_shift($terms);
                 $category = $term->name;
             }
-            $color = sanitize_hex_color(get_post_meta($postid, 'wp_project_color', true));
+            $color = sanitize_hex_color(get_field('wp_project_color'));
             $style = "box-shadow: -25px -25px 0px 0px " .  $color . ";";
-             ?>
+
+            $icon = get_field('wp_project_icon');
+            ?>
             <h2><?php echo $category ?></h2>
-            <h1><?php the_title(); ?></h1>
+            <div class="d-flex align-items-center">
+                <h1><?php the_title(); ?></h1>
+                <?php if ($icon) : ?>
+                    <img src="<?php echo esc_url($icon) ?>" alt="<?php echo get_the_title() . ' icon' ?>" class="project-icon" />
+                <?php endif; ?>
+            </div>
+
         </div>
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <?php the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid thumbnail', 'alt' => get_the_title(), 'style' => $style]); ?>
+                <?php the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid thumbnail', 'alt' => get_the_title() . ' thumbnail', 'style' => $style]); ?>
             </div>
             <div class="col-sm-12 col-md-6">
                 <?php if (have_posts()) : while (have_posts()) : the_post();
