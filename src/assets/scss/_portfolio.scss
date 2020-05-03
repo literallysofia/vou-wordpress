@@ -1,12 +1,13 @@
 #portfolio {
   margin-top: 5em !important;
   > div:not(:last-child) {
-    margin-bottom: 8em;
+    margin-bottom: 5em;
   }
   .project-grid {
     padding-left: 5em;
     [class*="col-"] {
       padding-top: 25px;
+      margin-bottom: 4em;
     }
   }
   .project {
@@ -29,7 +30,7 @@
       padding-right: 0;
       padding-left: 25px;
       &:not(:first-child) {
-        margin-top: 3em;
+        margin-top: 0;
       }
     }
   }
@@ -50,6 +51,11 @@
 }
 
 #single-project {
+  .project-icon {
+    max-height: 50px;
+    margin-top: 0.5em;
+    margin-left: 2em;
+  }
   [class*="col-"] {
     padding-top: 25px;
     padding-left: calc(25px + 1em);

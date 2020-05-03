@@ -54,7 +54,7 @@ get_header(); ?>
                                 <?php while ($project_query->have_posts()) : $project_query->the_post(); ?>
                                     <div class="col-sm-12 col-md-6 project">
                                         <?php
-                                        $color = sanitize_hex_color(get_post_meta(get_the_ID(), 'wp_project_color', true));
+                                        $color = sanitize_hex_color(get_field('wp_project_color'));
                                         $style = "box-shadow: -25px -25px 0px 0px " .  $color . ";";
                                         the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid', 'alt' => get_the_title(), 'style' => $style]);
                                         ?>
