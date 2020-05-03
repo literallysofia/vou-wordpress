@@ -26,7 +26,7 @@
                                             <?php the_title(); ?>
                                         </a>
                                     </h4>
-                                    <p class="card-text"><?php the_content(); ?></p>
+                                    <p class="card-text"><?php the_excerpt(); ?></p>
                             <a href="#" class="btn btn-primary">Ver mais</a>
                                 </div>
                             </div>
