@@ -10,6 +10,12 @@
   }
   .single-dep {
     padding-top: 25px;
+    h3 {
+      margin: 0;
+    }
+    .dep-icon {
+      max-height: 50px;
+    }
     .email {
       margin-top: 1em;
     }
@@ -26,6 +32,9 @@
     .image-container {
       padding-left: 25px;
     }
+    .dep-icon {
+      margin-left: 2em;
+    }
     i {
       margin-right: 0.5em;
     }
@@ -34,6 +43,9 @@
     text-align: right;
     .image-container {
       padding-right: 25px;
+    }
+    .dep-icon {
+      margin-right: 2em;
     }
     i {
       margin-left: 0.5em;
