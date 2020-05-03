@@ -33,7 +33,7 @@ get_header(); ?>
             <?php foreach (get_terms('jetpack-portfolio-type') as $cat) : ?>
                 <div class="row">
                     <div class="col-sm-12 col-md-2">
-                        <img src="<?php echo z_taxonomy_image_url($cat->term_id); ?>" class="img-fluid project-type" alt="<?php echo $cat->cat_name; ?>">
+                        <img src="<?php echo z_taxonomy_image_url($cat->term_id); ?>" class="img-fluid project-type" alt="<?php echo $cat->name; ?>">
                     </div>
                     <?php
                     $project_query = new WP_Query(array(
@@ -53,7 +53,7 @@ get_header(); ?>
                             <div class="row">
                                 <?php while ($project_query->have_posts()) : $project_query->the_post(); ?>
                                     <div class="col-sm-12 col-md-6 project">
-                                        <?php the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid', 'alt' => esc_html(get_the_title())]); ?>
+                                        <?php the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid', 'alt' => get_the_title()]); ?>
                                         <h2><?php the_title(); ?></h2>
                                         <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button">Saber Mais</a>
                                     </div>

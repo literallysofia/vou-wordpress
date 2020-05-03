@@ -1,6 +1,6 @@
 #portfolio {
   margin-top: 5em !important;
-  > div {
+  > div:not(:last-child) {
     margin-bottom: 8em;
   }
   .project-grid {
@@ -49,5 +49,23 @@
         }
       }
     }
+  }
+}
+
+#single-project {
+  .thumbnail {
+    box-shadow: -25px -25px 0px 0px $main-color;
+  }
+  [class*="col-"] {
+    padding-top: 25px;
+    padding-left: calc(25px + 1em);
+  }
+  i {
+    color: $main-color;
+  }
+}
+@media (max-width: 767.98px) {
+  [class*="col-"]:last-child {
+    margin-top: 2em;
   }
 }

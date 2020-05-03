@@ -61,13 +61,3 @@ function themevou_custom_header_setup()
 add_action('after_setup_theme', 'themevou_custom_header_setup');
 
 add_theme_support('post-thumbnails');
-
-add_filter('register_post_type_args', 'portfolio_args', 10, 2);
-
-function portfolio_args($args, $post_type)
-{
-    if ('jetpack-portfolio' === $post_type) {
-        $args['rewrite']['slug'] = 'projetos';
-    }
-    return $args;
-}
