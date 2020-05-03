@@ -135,11 +135,33 @@ get_header(); ?>
     </div>
     <div id="news" class="section container-fluid">
         <div class="d-flex justify-content-between align-items-center flex-wrap">
-            <div class="heading">
-                <h2><?php echo get_theme_mod('news_subtitle', 'Últimas novidades'); ?></h2>
-                <h1><?php echo get_theme_mod('news_title', 'Notícias'); ?></h1>
+        <?php 
+            // the query
+            $the_query = new WP_Query( array(
+                'posts_per_page' => 3,
+            )); 
+            
+            if ( $the_query->have_posts() ) : 
+            
+            while ( $the_query->have_posts() ) : $the_query->the_post(); 
+            
+            if(has_post_thumbnail()) : 
+                $image = wp_get_attachment_image_src(the_post_thumbnail(), 'thumbnail' ); ?>
+        <?php endif; ?>
+        <div class="card" style="width: 18rem;">
+            <img class="card_img_top" src="<?php echo $image ?>" />
+            <div class="card-body">
+                <h1><?php the_title(); ?></h1>
+                <?php the_excerpt(); ?>
             </div>
-            <a class="btn btn-primary" href="<?php echo '#'; ?>" role="button"><?php echo get_theme_mod('news_button_text', 'Ver Mais'); ?></a>
+        </div>
+
+        <?php endwhile; ?>
+        <?php wp_reset_postdata(); ?>
+
+        <?php else : ?>
+            <h1><?php echo 'No News' ?></h1>
+        <?php endif; ?>
         </div>
     </div>
     <div id="newsletter" class="section">

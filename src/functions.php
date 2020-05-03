@@ -60,3 +60,4 @@ add_action('after_setup_theme', 'themevou_custom_header_setup');
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+add_theme_support( 'post-thumbnails' );
