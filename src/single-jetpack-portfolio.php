@@ -24,6 +24,7 @@ get_header(); ?>
             $style = "box-shadow: -25px -25px 0px 0px " .  $color . ";";
 
             $icon = get_field('wp_project_icon');
+            $email = sanitize_email(get_field('wp_project_email'));
             ?>
             <h2><?php echo $category ?></h2>
             <div class="d-flex align-items-center">
@@ -43,6 +44,12 @@ get_header(); ?>
                         the_content();
                     endwhile;
                 endif; ?>
+                <?php if ($email) : ?>
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-envelope"></i>
+                        <span><?php echo $email ?></span>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
