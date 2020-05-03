@@ -1,25 +1,27 @@
 <?php
 
 /**
- * The template for displaying all single posts
+ * The template for displaying regular content
  *
  * @package WordPress
  * @subpackage VOU
  * @since VOU 1.0
  */
 
-get_header();
+$postid = get_the_ID();
+$terms = get_the_terms($postid, 'jetpack-portfolio-type');
+
+if (!empty($terms)) {
+    $term = array_shift($terms);
+    $category = $term->name;
+}
+
 ?>
 
 <main class="page">
     <div class="container-fluid">
         <div class="heading">
-            <?php do_action('plugins/wp_subtitle/the_subtitle', array(
-                'before'        => '<h2>',
-                'after'         => '</h2>',
-                'post_id'       => get_the_ID(),
-                'default_value' => ''
-            )); ?>
+            <h2><?php echo $category ?></h2>
             <h1><?php echo wp_title(''); ?></h1>
         </div>
         <?php if (have_posts()) : while (have_posts()) : the_post();
@@ -32,5 +34,3 @@ get_header();
         endif; ?>
     </div>
 </main>
-
-<?php get_footer(); ?>

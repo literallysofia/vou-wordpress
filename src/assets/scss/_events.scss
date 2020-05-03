@@ -1,0 +1,13 @@
+#events {
+  [class*="col-"] {
+    &:first-child {
+      padding-right: 2em;
+    }
+    &:last-child {
+      padding-left: 2em;
+    }
+  }
+  .single-event:not(:first-child) {
+    margin-top: 5em;
+  }
+}
