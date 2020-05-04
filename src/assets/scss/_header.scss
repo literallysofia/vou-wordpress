@@ -43,6 +43,13 @@ nav.navbar {
     }
   }
 
+  .current_page_item,
+  .current-menu-ancestor {
+    &.nav-item a.nav-link {
+      color: $main-color !important;
+    }
+  }
+
   .nav-item {
     margin-left: 2em;
     a.nav-link {

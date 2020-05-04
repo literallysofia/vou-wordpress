@@ -6,7 +6,7 @@
   }
 }
 
-#homepage #about {
+#homepage .about {
   .heading {
     padding-bottom: 3em;
   }
@@ -27,7 +27,7 @@
   }
 }
 
-#homepage #divider {
+#homepage .divider {
   button {
     margin-top: 1em;
   }
@@ -48,7 +48,7 @@
   }
 }
 
-#homepage #projects {
+#homepage .projects {
   [class*="col-"] {
     &:first-child {
       padding-right: 3em;
@@ -57,7 +57,7 @@
       padding-left: 3em;
     }
   }
-  &.left {
+  .left {
     .image-container {
       padding-left: 25px;
     }
@@ -65,7 +65,7 @@
       box-shadow: -25px -25px 0px 0px $main-color;
     }
   }
-  &.right {
+  .right {
     margin-top: 6em;
     text-align: right;
     .image-container {
@@ -84,16 +84,16 @@
         padding-left: 1em;
       }
     }
-    &.left [class*="col-"]:last-child {
+    .left [class*="col-"]:last-child {
       margin-top: 4em;
     }
-    &.right [class*="col-"]:last-child {
+    .right [class*="col-"]:last-child {
       margin-top: 6em;
     }
   }
 }
 
-#homepage #counter {
+#homepage .counter {
   text-align: center;
   .counter-container {
     background: $grey-color;
@@ -126,7 +126,7 @@
   }
 }
 
-#homepage #news {
+#homepage .news {
   h3 {
     margin-top: 0.6em;
     margin-bottom: 0.2em;
@@ -147,7 +147,7 @@
   }
 }
 
-#homepage #newsletter {
+#homepage .newsletter {
   .container-fluid {
     background: $grey-color;
     padding-top: 4.5em;
@@ -185,7 +185,7 @@
   }
 }
 
-#homepage #contact {
+#homepage .contact {
   #map {
     height: 300px;
     * {

@@ -1,5 +1,4 @@
 #portfolio {
-  margin-top: 5em !important;
   > div:not(:last-child) {
     margin-bottom: 5em;
   }
@@ -60,8 +59,14 @@
     padding-top: 25px;
     padding-left: calc(25px + 1em);
   }
+  .email {
+    margin-top: 1em;
+  }
   i {
     color: $main-color;
+    font-size: 2em;
+    width: 1em;
+    margin-right: 0.5em;
   }
 }
 @media (max-width: 767.98px) {
