@@ -10,7 +10,6 @@
 
 function themevou_customize_register($wp_customize)
 {
-	require_once get_template_directory() . '/inc/custom-controls.php';
 
 	$wp_customize->add_panel(
 		'homepage_panel',
