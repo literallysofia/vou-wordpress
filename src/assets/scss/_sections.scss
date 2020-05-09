@@ -185,7 +185,7 @@
   }
 }
 
-#homepage .contact {
+.contact {
   #map {
     height: 300px;
     * {
@@ -193,6 +193,9 @@
       height: 100%;
       border-radius: 25px;
     }
+  }
+  .content {
+    margin-bottom: 3em;
   }
   .contacts {
     margin-top: 1.5em;

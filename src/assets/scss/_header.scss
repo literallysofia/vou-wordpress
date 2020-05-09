@@ -38,6 +38,11 @@ nav.navbar {
         padding-bottom: 0.8em;
       }
       &:hover {
+        background-color: #f8f9fa !important;
+        color: $main-color !important;
+      }
+      &.active {
+        background: none;
         color: $main-color !important;
       }
     }
