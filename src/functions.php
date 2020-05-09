@@ -23,66 +23,48 @@ function my_theme_register_required_plugins()
 	 * If the source is NOT from the .org repo, then source is also required.
 	 */
 	$plugins = array(
-
-		// This is an example of how to include a plugin from the WordPress Plugin Repository.
-		array(
-			'name'      => 'Classic Editor',
-			'slug'      => 'classic-editor',
-			'required'  => true,
-			'force_activation' => true,
-		),
-
-
 		array(
 			'name'      => 'Permalink Manager Lite',
 			'slug'      => 'permalink-manager',
 			'required'  => true,
 			'force_activation' => true,
 		),
-
 		array(
 			'name'      => 'Font Awesome',
 			'slug'      => 'font-awesome',
 			'required'  => true,
 			'force_activation' => true,
 		),
-
 		array(
 			'name'      => 'Instagram Feed',
 			'slug'      => 'instagram-feed',
 			'required'  => true,
 			'force_activation' => true,
 		),
-
 		array(
 			'name'      => 'JetPack',
 			'slug'      => 'jetpack',
 			'required'  => true,
 			'force_activation' => true,
 		),
-
 		array(
 			'name'      => 'WP Subtitle',
 			'slug'      => 'wp-subtitle',
 			'required'  => true,
 			'force_activation' => true,
 		),
-
 		array(
 			'name'      => 'Categories Images',
 			'slug'      => 'categories-images',
 			'required'  => true,
 			'force_activation' => true,
 		),
-
 		array(
 			'name'      => 'Advanced Custom Fields',
 			'slug'      => 'advanced-custom-fields',
 			'required'  => true,
 			'force_activation' => true,
-		),
-
-		// <snip />
+		)
 	);
 
 	/*
@@ -105,14 +87,6 @@ function my_theme_register_required_plugins()
 		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
 		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
 		'message'      => '',                      // Message to output right before the plugins table.
-		/*
-		'strings'      => array(
-			'page_title'                      => __( 'Install Required Plugins', 'theme-slug' ),
-			'menu_title'                      => __( 'Install Plugins', 'theme-slug' ),
-			// <snip>...</snip>
-			'nag_type'                        => 'updated', // Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
-		)
-		*/
 	);
 
 	tgmpa($plugins, $config);
@@ -191,6 +165,24 @@ add_action('admin_menu', 'remove_toolbar_items');
 
 function create_posttype()
 {
+
+	register_post_type(
+		'faq',
+		// CPT Options
+		array(
+			'labels' => array(
+				'name' => __('FAQs'),
+				'singular_name' => __('FAQ'),
+				'all_items' => __('All FAQs')
+			),
+			'public' => true,
+			'has_archive' => false,
+			'rewrite' => array('slug' => 'faq'),
+			'menu_icon' => 'dashicons-format-chat',
+			'supports' => array('title', 'editor')
+		)
+	);
+
 	register_post_type(
 		'member',
 		// CPT Options
@@ -204,7 +196,7 @@ function create_posttype()
 			'has_archive' => false,
 			'rewrite' => array('slug' => 'member'),
 			'menu_icon' => 'dashicons-heart',
-			'supports' => array('title', 'editor', 'thumbnail', 'custom-fields')
+			'supports' => array('title', 'editor', 'author', 'thumbnail', 'custom-fields')
 		)
 	);
 }

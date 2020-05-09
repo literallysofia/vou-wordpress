@@ -1,0 +1,41 @@
+#accordion {
+  margin: 0;
+  .card {
+    border: none !important;
+    border-color: $main-color;
+    border-radius: 4px;
+    .card-header {
+      background-color: $grey-color;
+      transition: $transition;
+      padding: 1em 2em;
+      border: none !important;
+      cursor: pointer;
+      &:hover {
+        background-color: $main-color;
+      }
+      &[aria-expanded="true"] {
+        background-color: $main-color;
+        h3::after {
+            content: "\f068";
+        }
+      }
+      h3 {
+        margin: 0;
+        font-size: 1.2em;
+        &::after {
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          font-size: 0.8em;
+          content: "\f067";
+        }
+      }
+    }
+    .card-body {
+      background-color: #f8f8f8;
+      padding: 2em 2em;
+      p:last-child {
+        margin: 0;
+      }
+    }
+  }
+}

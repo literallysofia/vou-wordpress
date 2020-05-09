@@ -35,6 +35,7 @@ $transition: all 0.4s ease-out;
 @import "events";
 @import "members";
 @import "news";
+@import "faq";
 @import "footer";
 
 html,
@@ -147,52 +148,5 @@ main.page {
     font-size: 1.4em;
     font-style: italic;
     color: $main-color;
-  }
-}
-
-.qe-faq-toggle {
-  margin: 0;
-  &.active .qe-toggle-title {
-    background-color: #f8f8f8;
-    border-color: rgb(240, 240, 240);
-    &:hover {
-      background-color: #f8f8f8;
-    }
-  }
-  .qe-toggle-title {
-    background-color: $main-color;
-    border-color: $hover-color;
-
-    &:hover {
-      background-color: $hover-color;
-    }
-  }
-  .qe-toggle-content {
-    background-color: #f8f8f8;
-    border-color: rgb(240, 240, 240);
-    margin-top: -1px;
-  }
-  &:not(:first-child) {
-    margin-top: -1px;
-  }
-  &:first-child .qe-toggle-title {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-  &:last-child {
-    .qe-toggle-title {
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-    }
-    &.active {
-      .qe-toggle-title {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-      .qe-toggle-content {
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-      }
-    }
   }
 }
