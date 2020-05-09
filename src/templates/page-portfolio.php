@@ -65,7 +65,7 @@ get_header(); ?>
                                         $style = "box-shadow: -25px -25px 0px 0px " .  $color . ";";
                                         the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid', 'alt' => get_the_title(), 'style' => $style]);
                                         ?>
-                                        <h2><?php the_title(); ?></h2>
+                                        <h3><?php the_title(); ?></h3>
                                         <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button">Saber Mais</a>
                                     </div>
                                 <?php endwhile; ?>

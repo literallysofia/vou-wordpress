@@ -151,14 +151,14 @@ get_header(); ?>
                 <?php while ($news_query->have_posts()) : $news_query->the_post(); ?>
                     <div class="col-sm-12 col-md-4">
                         <a href="<?php the_permalink(); ?>">
-                            <?php the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid', 'alt' => esc_html(get_the_title())]); ?>
+                            <?php the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid', 'alt' => get_the_title()]); ?>
                         </a>
                         <h3>
                             <a href="<?php the_permalink(); ?>">
                                 <?php the_title(); ?>
                             </a>
                         </h3>
-                        <span>Publicado em <?php the_date(); ?></span>
+                        <span><?php echo get_the_date(); ?></span>
                     </div>
                 <?php endwhile; ?>
                 <?php wp_reset_postdata(); ?>
