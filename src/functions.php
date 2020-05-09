@@ -195,8 +195,25 @@ function create_posttype()
 			'public' => true,
 			'has_archive' => false,
 			'rewrite' => array('slug' => 'member'),
-			'menu_icon' => 'dashicons-heart',
+			'menu_icon' => 'dashicons-groups',
 			'supports' => array('title', 'editor', 'author', 'thumbnail', 'custom-fields')
+		)
+	);
+
+	register_post_type(
+		'partner',
+		// CPT Options
+		array(
+			'labels' => array(
+				'name' => __('Partners'),
+				'singular_name' => __('Partner'),
+				'all_items' => __('All Partners')
+			),
+			'public' => true,
+			'has_archive' => false,
+			'rewrite' => array('slug' => 'partner'),
+			'menu_icon' => 'dashicons-heart',
+			'supports' => array('title', 'thumbnail')
 		)
 	);
 }
