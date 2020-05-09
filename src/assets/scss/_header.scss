@@ -41,7 +41,8 @@ nav.navbar {
         background-color: #f8f9fa !important;
         color: $main-color !important;
       }
-      &.active {
+      &.active,
+      &:active {
         background: none;
         color: $main-color !important;
       }
