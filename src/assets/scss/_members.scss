@@ -1,0 +1,15 @@
+#members {
+  .member {
+    text-align: center;
+    padding: 2em 4em;
+    h4 {
+      margin-top: 1em;
+    }
+    span {
+      color: $main-color;
+      font-family: "Space Mono", "Lucida Console", Monaco, monospace;
+      font-weight: bold;
+      font-style: italic;
+    }
+  }
+}

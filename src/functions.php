@@ -181,3 +181,32 @@ function remove_custom_fields_from_posts()
 }
 
 add_action('init', 'remove_custom_fields_from_posts');
+
+function remove_toolbar_items()
+{
+	remove_menu_page('edit-comments.php');
+}
+
+add_action('admin_menu', 'remove_toolbar_items');
+
+function create_posttype()
+{
+	register_post_type(
+		'member',
+		// CPT Options
+		array(
+			'labels' => array(
+				'name' => __('Members'),
+				'singular_name' => __('Member'),
+				'all_items' => __('All Members')
+			),
+			'public' => true,
+			'has_archive' => false,
+			'rewrite' => array('slug' => 'member'),
+			'menu_icon' => 'dashicons-heart',
+			'supports' => array('title', 'editor', 'thumbnail', 'custom-fields')
+		)
+	);
+}
+// Hooking up our function to theme setup
+add_action('init', 'create_posttype');
