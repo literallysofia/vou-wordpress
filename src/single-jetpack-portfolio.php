@@ -30,8 +30,6 @@ else :
             <div class="heading">
                 <?php
                 $color = sanitize_hex_color(get_field('wp_project_color'));
-                $style = "box-shadow: -25px -25px 0px 0px " .  $color . ";";
-
                 $icon = get_field('wp_project_icon');
                 $email = sanitize_email(get_field('wp_project_email'));
                 ?>
@@ -46,7 +44,9 @@ else :
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-6">
-                    <?php the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid thumbnail', 'alt' => get_the_title() . ' thumbnail', 'style' => $style]); ?>
+                    <div style="box-shadow: -25px -25px 0px 0px <?php echo $color ?>;">
+                        <?php get_template_part('template-parts/slider', 'single'); ?>
+                    </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <?php if (have_posts()) : while (have_posts()) : the_post();
