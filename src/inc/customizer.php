@@ -65,13 +65,14 @@ function themevou_customize_register($wp_customize)
 
 	$wp_customize->add_setting('banner_button_url', array(
 		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'esc_url_raw'
+		'sanitize_callback' => 'absint'
 	));
 
 	$wp_customize->add_control('banner_button_url', array(
-		'type' => 'text',
+		'type' => 'dropdown-pages',
 		'section' => 'banner_section',
-		'label' => __('Button URL')
+		'label' => __('Button Page'),
+		'description' => __('Select the page to which this button links.')
 	));
 
 	$wp_customize->add_setting('banner_show_button', array(
@@ -92,80 +93,6 @@ function themevou_customize_register($wp_customize)
 		'type' => 'checkbox',
 		'section' => 'banner_section',
 		'label' => __('Display Mouse Animation')
-	));
-
-	// FOOTER
-	$wp_customize->add_section('footer_section', array(
-		'title'    => __('Footer', 'footer'),
-		'panel' => 'homepage_panel'
-	));
-
-	$wp_customize->add_setting('footer_text', array(
-		'capability' => 'edit_theme_options',
-		'default' => 'Copyright 2020 VO.U. Todos os direitos reservados.',
-		'sanitize_callback' => 'sanitize_text_field'
-	));
-
-	$wp_customize->add_control('footer_text', array(
-		'type' => 'text',
-		'section' => 'footer_section',
-		'label' => __('Footer'),
-		'description' => __('Copyright information.')
-	));
-
-	$wp_customize->add_setting('footer_facebook', array(
-		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'esc_url_raw'
-	));
-
-	$wp_customize->add_control('footer_facebook', array(
-		'type' => 'text',
-		'section' => 'footer_section',
-		'label' => __('Facebook URL')
-	));
-
-	$wp_customize->add_setting('footer_instagram', array(
-		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'esc_url_raw'
-	));
-
-	$wp_customize->add_control('footer_instagram', array(
-		'type' => 'text',
-		'section' => 'footer_section',
-		'label' => __('Instagram URL')
-	));
-
-	$wp_customize->add_setting('footer_twitter', array(
-		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'esc_url_raw'
-	));
-
-	$wp_customize->add_control('footer_twitter', array(
-		'type' => 'text',
-		'section' => 'footer_section',
-		'label' => __('Twitter URL')
-	));
-
-	$wp_customize->add_setting('footer_linkedin', array(
-		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'esc_url_raw'
-	));
-
-	$wp_customize->add_control('footer_linkedin', array(
-		'type' => 'text',
-		'section' => 'footer_section',
-		'label' => __('LinkedIn URL')
-	));
-
-	$wp_customize->add_setting('footer_youtube', array(
-		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'esc_url_raw'
-	));
-
-	$wp_customize->add_control('footer_youtube', array(
-		'type' => 'text',
-		'section' => 'footer_section',
-		'label' => __('Youtube URL')
 	));
 
 	// ABOUT
@@ -365,13 +292,14 @@ function themevou_customize_register($wp_customize)
 
 	$wp_customize->add_setting('divider_button_url', array(
 		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'esc_url_raw'
+		'sanitize_callback' => 'absint'
 	));
 
 	$wp_customize->add_control('divider_button_url', array(
-		'type' => 'text',
+		'type' => 'dropdown-pages',
 		'section' => 'divider_section',
-		'label' => __('Button URL')
+		'label' => __('Button Page'),
+		'description' => __('Select the page to which this button links.')
 	));
 
 	$wp_customize->add_setting('divider_show_button', array(
@@ -458,13 +386,14 @@ function themevou_customize_register($wp_customize)
 
 	$wp_customize->add_setting('projects_button_url', array(
 		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'esc_url_raw'
+		'sanitize_callback' => 'absint'
 	));
 
 	$wp_customize->add_control('projects_button_url', array(
-		'type' => 'text',
+		'type' => 'dropdown-pages',
 		'section' => 'projects_section',
-		'label' => __('Button URL')
+		'label' => __('Button Page'),
+		'description' => __('Select the page to which this button links.')
 	));
 
 	// DEPARTMENTS
@@ -541,13 +470,14 @@ function themevou_customize_register($wp_customize)
 
 	$wp_customize->add_setting('dep_button_url', array(
 		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'esc_url_raw'
+		'sanitize_callback' => 'absint'
 	));
 
 	$wp_customize->add_control('dep_button_url', array(
-		'type' => 'text',
+		'type' => 'dropdown-pages',
 		'section' => 'dep_section',
-		'label' => __('Button URL')
+		'label' => __('Button Page'),
+		'description' => __('Select the page to which this button links.')
 	));
 
 	// COUNTER
@@ -748,17 +678,6 @@ function themevou_customize_register($wp_customize)
 		'label' => __('Subtitle')
 	));
 
-	$wp_customize->add_setting('contact_map', array(
-		'capability' => 'edit_theme_options'
-	));
-
-	$wp_customize->add_control('contact_map', array(
-		'type' => 'textarea',
-		'section' => 'contact_section',
-		'label' => __('Map'),
-		'description' => __('Embed map code.')
-	));
-
 	$wp_customize->add_setting('contact_address', array(
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'wp_kses_post'
@@ -818,6 +737,80 @@ function themevou_customize_register($wp_customize)
 		'type' => 'text',
 		'section' => 'insta_section',
 		'label' => __('Slogan')
+	));
+
+	// FOOTER
+	$wp_customize->add_section('footer_section', array(
+		'title'    => __('Footer', 'footer'),
+		'panel' => 'homepage_panel'
+	));
+
+	$wp_customize->add_setting('footer_text', array(
+		'capability' => 'edit_theme_options',
+		'default' => 'Copyright 2020 VO.U. Todos os direitos reservados.',
+		'sanitize_callback' => 'sanitize_text_field'
+	));
+
+	$wp_customize->add_control('footer_text', array(
+		'type' => 'text',
+		'section' => 'footer_section',
+		'label' => __('Footer'),
+		'description' => __('Copyright information.')
+	));
+
+	$wp_customize->add_setting('footer_facebook', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'esc_url_raw'
+	));
+
+	$wp_customize->add_control('footer_facebook', array(
+		'type' => 'text',
+		'section' => 'footer_section',
+		'label' => __('Facebook URL')
+	));
+
+	$wp_customize->add_setting('footer_instagram', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'esc_url_raw'
+	));
+
+	$wp_customize->add_control('footer_instagram', array(
+		'type' => 'text',
+		'section' => 'footer_section',
+		'label' => __('Instagram URL')
+	));
+
+	$wp_customize->add_setting('footer_twitter', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'esc_url_raw'
+	));
+
+	$wp_customize->add_control('footer_twitter', array(
+		'type' => 'text',
+		'section' => 'footer_section',
+		'label' => __('Twitter URL')
+	));
+
+	$wp_customize->add_setting('footer_linkedin', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'esc_url_raw'
+	));
+
+	$wp_customize->add_control('footer_linkedin', array(
+		'type' => 'text',
+		'section' => 'footer_section',
+		'label' => __('LinkedIn URL')
+	));
+
+	$wp_customize->add_setting('footer_youtube', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'esc_url_raw'
+	));
+
+	$wp_customize->add_control('footer_youtube', array(
+		'type' => 'text',
+		'section' => 'footer_section',
+		'label' => __('Youtube URL')
 	));
 }
 add_action('customize_register', 'themevou_customize_register');

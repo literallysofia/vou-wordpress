@@ -22,7 +22,7 @@ get_header(); ?>
                 <h1><?php echo get_theme_mod('banner_title_text', 'Vem ser VO.U.'); ?></h1>
                 <p class="lead"><?php echo get_theme_mod('banner_description_text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer imperdiet venenatis nisi id vestibulum. Integer gravida ut ipsum vitae tristique.'); ?></p>
                 <?php if (get_theme_mod('banner_show_button', '1')) : ?>
-                    <a class="btn btn-primary" href="<?php echo get_theme_mod('banner_button_url', '#'); ?>" role="button"><?php echo get_theme_mod('banner_button_text', 'Inscrições'); ?></a>
+                    <a class="btn btn-primary" href="<?php echo get_permalink(get_theme_mod('banner_button_url')); ?>" role="button"><?php echo get_theme_mod('banner_button_text', 'Inscrições'); ?></a>
                 <?php endif; ?>
             </div>
             <div class="col-sm-12 col-md-6">
@@ -71,7 +71,7 @@ get_header(); ?>
                 </div>
                 <p><?php echo get_theme_mod('divider_text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue.'); ?></p>
                 <?php if (get_theme_mod('divider_show_button', '1')) : ?>
-                    <a class="btn btn-primary" href="<?php echo get_theme_mod('divider_button_url', '#'); ?>" role="button"><?php echo get_theme_mod('divider_button_text', 'Inscrições'); ?></a>
+                    <a class="btn btn-primary" href="<?php echo get_permalink(get_theme_mod('divider_button_url')); ?>" role="button"><?php echo get_theme_mod('divider_button_text', 'Inscrições'); ?></a>
                 <?php endif; ?>
             </div>
         </div>
@@ -90,7 +90,7 @@ get_header(); ?>
                         <h1><?php echo get_theme_mod('projects_title', 'Projetos'); ?></h1>
                     </div>
                     <p><?php echo get_theme_mod('projects_text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue.'); ?></p>
-                    <a class="btn btn-primary" href="<?php echo get_theme_mod('projects_button_url', '#'); ?>" role="button"><?php echo get_theme_mod('projects_button_text', 'Ver Todos'); ?></a>
+                    <a class="btn btn-primary" href="<?php echo get_permalink(get_theme_mod('projects_button_url')); ?>" role="button"><?php echo get_theme_mod('projects_button_text', 'Ver Todos'); ?></a>
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@ get_header(); ?>
                         <h1><?php echo get_theme_mod('dep_title', 'Núcleos'); ?></h1>
                     </div>
                     <p><?php echo get_theme_mod('dep_text', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ante in scelerisque cursus. Integer vel est vel neque condimentum bibendum eget in augue.'); ?></p>
-                    <a class="btn btn-primary" href="<?php echo get_theme_mod('dep_button_url', '#'); ?>" role="button"><?php echo get_theme_mod('dep_button_text', 'Ver Todos'); ?></a>
+                    <a class="btn btn-primary" href="<?php echo get_permalink(get_theme_mod('dep_button_url')); ?>" role="button"><?php echo get_theme_mod('dep_button_text', 'Ver Todos'); ?></a>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div class="image-container">
@@ -133,20 +133,21 @@ get_header(); ?>
             </div>
         </div>
     </div>
-    <div class="news section container-fluid">
-        <div class="d-flex justify-content-between align-items-center flex-wrap">
-            <div class="heading">
-                <h2><?php echo get_theme_mod('news_subtitle', 'Últimas novidades'); ?></h2>
-                <h1><?php echo get_theme_mod('news_title', 'Notícias'); ?></h1>
-            </div>
-            <a class="btn btn-primary" href="<?php echo '#'; ?>" role="button"><?php echo get_theme_mod('news_button_text', 'Ver Mais'); ?></a>
-        </div>
-        <?php
-        $news_query = new WP_Query(array(
-            'posts_per_page' => 3,
-        ));
+    <?php
+    $news_query = new WP_Query(array(
+        'posts_per_page' => 3,
+    ));
 
-        if ($news_query->have_posts()) : ?>
+    if ($news_query->have_posts()) : ?>
+        <div class="news section container-fluid">
+            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                <div class="heading">
+                    <h2><?php echo get_theme_mod('news_subtitle', 'Últimas novidades'); ?></h2>
+                    <h1><?php echo get_theme_mod('news_title', 'Notícias'); ?></h1>
+                </div>
+                <a class="btn btn-primary" href="<?php echo get_permalink(get_option('page_for_posts')); ?>" role="button"><?php echo get_theme_mod('news_button_text', 'Ver Mais'); ?></a>
+            </div>
+
             <div class="row">
                 <?php while ($news_query->have_posts()) : $news_query->the_post(); ?>
                     <div class="col-sm-12 col-md-4">
@@ -163,10 +164,8 @@ get_header(); ?>
                 <?php endwhile; ?>
                 <?php wp_reset_postdata(); ?>
             </div>
-        <?php else : ?>
-            <h1><?php echo 'No News' ?></h1>
-        <?php endif; ?>
-    </div>
+        </div>
+    <?php endif; ?>
     <div class="newsletter section">
         <div class="container-fluid">
             <div class="row">
@@ -212,10 +211,8 @@ get_header(); ?>
                 </form>
             </div>
             <div class="col-sm-12 col-md-6">
-                <?php if (get_theme_mod('contact_map')) : ?>
-                    <div id="map">
-                        <?php echo do_shortcode(get_theme_mod('contact_map')); ?>
-                    </div>
+                <?php if (is_active_sidebar('map-area')) : ?>
+                    <?php dynamic_sidebar('map-area'); ?>
                 <?php endif; ?>
                 <div class="contacts">
                     <?php if (get_theme_mod('contact_address')) : ?>

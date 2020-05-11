@@ -48,10 +48,8 @@ get_header(); ?>
                 </form>
             </div>
             <div class="col-sm-12 col-md-6">
-                <?php if (get_theme_mod('contact_map')) : ?>
-                    <div id="map">
-                        <?php echo do_shortcode(get_theme_mod('contact_map')); ?>
-                    </div>
+                <?php if (is_active_sidebar('map-area')) : ?>
+                    <?php dynamic_sidebar('map-area'); ?>
                 <?php endif; ?>
                 <div class="contacts">
                     <?php if (get_theme_mod('contact_address')) : ?>

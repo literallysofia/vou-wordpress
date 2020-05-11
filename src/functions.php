@@ -217,5 +217,19 @@ function create_posttype()
 		)
 	);
 }
-// Hooking up our function to theme setup
+
 add_action('init', 'create_posttype');
+
+function vou_widgets_init()
+{
+	register_sidebar(array(
+		'name'          => __('Map', 'vou'),
+		'id'            => 'map-area',
+		'description'   => '',
+		'before_widget' => '<div id="map">',
+		'after_widget'  => '</div>',
+		'before_title'  => '',
+		'after_title'   => ''
+	));
+}
+add_action('widgets_init', 'vou_widgets_init');
