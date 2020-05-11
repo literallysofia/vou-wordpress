@@ -97,6 +97,8 @@ function themevou_enqueue_styles()
 
 	wp_enqueue_style('bootstrap', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css');
 	wp_enqueue_style('core', get_template_directory_uri() . '/style.css');
+	$custom_css = theme_get_customizer_css();
+	wp_add_inline_style('core', $custom_css);
 }
 add_action('wp_enqueue_scripts', 'themevou_enqueue_styles');
 
@@ -135,9 +137,7 @@ function themevou_custom_header_setup()
 		// Default Header Image to display
 		'default-image'         => get_template_directory_uri() . '/assets/images/default-header.png',
 		// Display the header text along with the image
-		'header-text'           => true,
-		// Header text color default
-		'default-text-color'        => '000',
+		'header-text'           => false,
 		// Header image width (in pixels)
 		'width'             => 1740,
 		// Header image height (in pixels)

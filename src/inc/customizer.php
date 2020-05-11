@@ -8,8 +8,187 @@
  * @since VOU 1.0
  */
 
+
+function theme_get_customizer_css()
+{
+	ob_start();
+
+	$text_color = get_theme_mod('text_color', '');
+	if (!empty($text_color)) {
+?>
+		body {
+		color: <?php echo $text_color; ?>;
+		}
+		#homepage .news h3 * {
+		color: <?php echo $text_color; ?>;
+		}
+		footer {
+		background-color: <?php echo $text_color; ?> !important;
+		}
+		#other-news h3 * {
+		color: <?php echo $text_color; ?>;
+		}
+		.mousey {
+		border: 2px solid <?php echo $text_color; ?>;
+		}
+		.scroller {
+		background-color: <?php echo $text_color; ?>;
+		}
+	<?php
+	}
+
+	$main_color = get_theme_mod('main_color', '');
+	if (!empty($main_color)) {
+	?>
+		a {
+		color: <?php echo $main_color; ?>;
+		}
+		.btn.btn-primary {
+		background: <?php echo $main_color; ?>; }
+		.btn.btn-primary.active {
+		background: <?php echo $main_color; ?> !important;
+		}
+		input.form-control,
+		textarea.form-control {
+		border-color: <?php echo $main_color; ?>;
+		}
+		.heading h2 {
+		color: <?php echo $main_color; ?>;
+		}
+		#homepage .projects .left img {
+		box-shadow: -25px -25px 0px 0px <?php echo $main_color; ?>;
+		}
+		#homepage .projects .right img {
+		box-shadow: 25px -25px 0px 0px <?php echo $main_color; ?>;
+		}
+		#homepage .counter i {
+		color: <?php echo $main_color; ?>;
+		}
+		#homepage .news span {
+		color: <?php echo $main_color; ?>;
+		}
+		.contact .contacts i {
+		color: <?php echo $main_color; ?>;
+		}
+		#single-project i {
+		color: <?php echo $main_color; ?>;
+		}
+		#news article span {
+		color: <?php echo $main_color; ?>;
+		}
+		#single-article .heading span {
+		color: <?php echo $main_color; ?>;
+		}
+		#other-news {
+		border-top: 1px solid <?php echo $main_color; ?>;
+		}
+		#other-news span {
+		color: <?php echo $main_color; ?>;
+		}
+		#members .member span {
+		color: <?php echo $main_color; ?>;
+		}
+		nav.navbar {
+		border-bottom: 6px solid <?php echo $main_color; ?>;
+		}
+		nav.navbar .dropdown.show a.dropdown-toggle {
+		color: <?php echo $main_color; ?> !important;
+		}
+		nav.navbar .dropdown-menu {
+		border-color: <?php echo $main_color; ?>;
+		}
+		nav.navbar .dropdown-menu a.dropdown-item:hover {
+		color: <?php echo $main_color; ?> !important;
+		}
+		nav.navbar .dropdown-menu a.dropdown-item.active,
+		nav.navbar .dropdown-menu a.dropdown-item:active {
+		color: <?php echo $main_color; ?> !important;
+		}
+		nav.navbar .current_page_item,
+		nav.navbar .current-menu-ancestor.nav-item a.nav-link {
+		color: <?php echo $main_color; ?> !important;
+		}
+		nav.navbar .nav-item a.nav-link:hover {
+		color: <?php echo $main_color; ?> !important;
+		}
+		button.navbar-toggler {
+		border-color: <?php echo $main_color; ?> !important;
+		color: <?php echo $main_color; ?> !important;
+		}
+		footer,
+		footer a {
+		color: <?php echo $main_color; ?>;
+		}
+		#accordion .card {
+		border-color: <?php echo $main_color; ?>;
+		}
+		#accordion .card .card-header:hover,
+		#accordion .card .card-header[aria-expanded="true"] {
+		background-color: <?php echo $main_color; ?>;
+		}
+		#departments .single-dep i {
+		color: <?php echo $main_color; ?>;
+		}
+	<?php
+	}
+
+	$accent_color = get_theme_mod('accent_color', '');
+	if (!empty($accent_color)) {
+	?>
+		a:hover {
+		color: <?php echo $accent_color; ?>;
+		}
+		.btn.btn-primary:hover {
+		background: <?php echo $accent_color; ?>;
+		}
+		.btn.btn-primary:active {
+		background: <?php echo $accent_color; ?> !important;
+		}
+<?php
+	}
+
+	$css = ob_get_clean();
+	return $css;
+}
+
 function themevou_customize_register($wp_customize)
 {
+
+	// Text color
+	$wp_customize->add_setting('text_color', array(
+		'default'   => '#000000',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'text_color', array(
+		'section' => 'colors',
+		'label'   => __('Text Color'),
+	)));
+
+	// Main color
+	$wp_customize->add_setting('main_color', array(
+		'default'   => '#fcdd00',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'main_color', array(
+		'section' => 'colors',
+		'label'   => __('Main Color'),
+	)));
+
+	//Accent Color
+	$wp_customize->add_setting('accent_color', array(
+		'default'   => '#fcca00',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'accent_color', array(
+		'section' => 'colors',
+		'label'   => __('Accent Color'),
+	)));
 
 	$wp_customize->add_panel(
 		'homepage_panel',
@@ -19,6 +198,7 @@ function themevou_customize_register($wp_customize)
 			'priority' => 50
 		)
 	);
+
 	// BANNER
 	$wp_customize->add_section('banner_section', array(
 		'title'    => __('Banner', 'banner'),
