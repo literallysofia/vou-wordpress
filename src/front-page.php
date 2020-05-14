@@ -194,21 +194,7 @@ get_header(); ?>
         </div>
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <form>
-                    <div class="form-group">
-                        <label for="inputName" class="sr-only">Nome</label>
-                        <input type="text" class="form-control" id="inputName" placeholder="Nome">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputEmail" class="sr-only">Email</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputMessage" class="sr-only">Mensagem</label>
-                        <textarea class="form-control" id="inputMessage" rows="7" placeholder="Mensagem"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </form>
+                <?php get_template_part('template-parts/contact-form', 'part'); ?>
             </div>
             <div class="col-sm-12 col-md-6">
                 <?php if (is_active_sidebar('map-area')) : ?>

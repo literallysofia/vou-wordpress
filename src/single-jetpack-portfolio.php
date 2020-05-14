@@ -45,7 +45,7 @@ else :
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <div style="box-shadow: -25px -25px 0px 0px <?php echo $color ?>;">
-                        <?php get_template_part('template-parts/slider', 'single'); ?>
+                        <?php get_template_part('template-parts/slider', 'part'); ?>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">

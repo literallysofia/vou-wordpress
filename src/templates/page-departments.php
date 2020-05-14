@@ -50,8 +50,8 @@ get_header(); ?>
                 $align = 1;
                 while ($dep_query->have_posts()) : $dep_query->the_post();
                     if ($align % 2 != 0)
-                        get_template_part('template-parts/dep-left', 'single');
-                    else get_template_part('template-parts/dep-right', 'single');
+                        get_template_part('template-parts/dep-left', 'part');
+                    else get_template_part('template-parts/dep-right', 'part');
                     $align++;
                 endwhile;
                 wp_reset_postdata();
