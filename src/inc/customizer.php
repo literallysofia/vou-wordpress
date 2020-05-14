@@ -52,6 +52,10 @@ function theme_get_customizer_css()
 		textarea.form-control {
 		border-color: <?php echo $main_color; ?>;
 		}
+		input.form-control:focus,
+		textarea.form-control:focus {
+		border-color: <?php echo $main_color; ?>;
+		}
 		.heading h2 {
 		color: <?php echo $main_color; ?>;
 		}

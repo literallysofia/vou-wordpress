@@ -108,12 +108,19 @@ footer {
   &:active {
     background: $hover-color !important;
   }
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(199, 199, 199, 0.5);
+  }
 }
 
 input.form-control,
 textarea.form-control {
   border-color: $main-color;
   border-radius: 25px;
+  &:focus {
+    border-color: $main-color;
+    box-shadow: 0 0 0 0.2rem rgba(199, 199, 199, 0.5);
+  }
 }
 
 input.form-control {
