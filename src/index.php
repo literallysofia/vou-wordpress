@@ -40,7 +40,7 @@ get_header();
                             <h3><?php the_title(); ?></h3>
                             <span><?php the_date(); ?></span>
                             <p><?php the_excerpt(); ?></p>
-                            <a href="<?php the_permalink(); ?>" class="btn btn-primary mt-auto">Ler mais</a>
+                            <a href="<?php the_permalink(); ?>" class="btn btn-primary mt-auto">Ler Mais</a>
                         </div>
                     </article>
                 <?php endwhile;
