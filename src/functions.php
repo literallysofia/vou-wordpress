@@ -42,7 +42,7 @@ function my_theme_register_required_plugins()
 			'force_activation' => true,
 		),
 		array(
-			'name'      => 'JetPack',
+			'name'      => 'Jetpack',
 			'slug'      => 'jetpack',
 			'required'  => true,
 			'force_activation' => true,
@@ -62,6 +62,24 @@ function my_theme_register_required_plugins()
 		array(
 			'name'      => 'Advanced Custom Fields',
 			'slug'      => 'advanced-custom-fields',
+			'required'  => true,
+			'force_activation' => true,
+		),
+		array(
+			'name'      => 'Cookie Notice',
+			'slug'      => 'cookie-notice',
+			'required'  => true,
+			'force_activation' => true,
+		),
+		array(
+			'name'      => 'Classic Editor',
+			'slug'      => 'classic-editor',
+			'required'  => true,
+			'force_activation' => true,
+		),
+		array(
+			'name'      => 'WP Mail SMTP',
+			'slug'      => 'wp-mail-smtp',
 			'required'  => true,
 			'force_activation' => true,
 		)
