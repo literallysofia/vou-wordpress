@@ -127,6 +127,14 @@
 }
 
 #homepage .news {
+  padding-bottom: 0;
+  img {
+    transition: $transition;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    &:hover {
+      opacity: 0.9;
+    }
+  }
   h3 {
     margin-top: 0.6em;
     margin-bottom: 0.2em;
@@ -140,6 +148,10 @@
     font-weight: bold;
     font-style: italic;
   }
+  .news-end {
+    padding-top: 4em;
+    border-bottom: 1px solid $main-color;
+  }
   @media (max-width: 767.98px) {
     [class*="col-"]:not(:first-child) {
       margin-top: 3em;
@@ -147,45 +159,11 @@
   }
 }
 
-#homepage .newsletter {
-  .container-fluid {
-    background: $grey-color;
-    padding-top: 4.5em;
-    padding-bottom: 4.5em;
-  }
-  h1 {
-    text-transform: uppercase;
-  }
-  form {
-    height: 100%;
-  }
-  .form-group {
-    margin: 0;
-    max-width: 400px;
-    min-width: fit-content;
-    &:last-child {
-      padding-left: 2em;
-    }
-  }
-  @media (max-width: 991.98px) {
-    [class*="col-"]:not(:first-child) {
-      margin-top: 2em;
-    }
-    form {
-      flex-direction: column;
-      align-items: flex-start !important;
-    }
-    .form-group {
-      width: 100% !important;
-      &:last-child {
-        padding-top: 1em;
-        padding-left: 0;
-      }
-    }
-  }
-}
-
 .contact {
+  img {
+    max-width: 100px;
+    margin-bottom: 4em;
+  }
   #map {
     height: 300px;
     margin-bottom: 1.5em;

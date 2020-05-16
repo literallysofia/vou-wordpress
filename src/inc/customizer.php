@@ -790,48 +790,6 @@ function themevou_customize_register($wp_customize)
 		'label' => __('Button Text')
 	));
 
-	// NEWSLETTER
-	$wp_customize->add_section('nletter_section', array(
-		'title'    => __('Newsletter', 'newsletter'),
-		'panel' => 'homepage_panel'
-	));
-
-	$wp_customize->add_setting('nletter_title', array(
-		'capability' => 'edit_theme_options',
-		'default' => 'Junta-te à nossa newsletter',
-		'sanitize_callback' => 'sanitize_text_field'
-	));
-
-	$wp_customize->add_control('nletter_title', array(
-		'type' => 'text',
-		'section' => 'nletter_section',
-		'label' => __('Title')
-	));
-
-	$wp_customize->add_setting('nletter_description', array(
-		'capability' => 'edit_theme_options',
-		'default' => 'Sê o primeiro a receber as últimas novidades e muito mais!',
-		'sanitize_callback' => 'sanitize_textarea_field'
-	));
-
-	$wp_customize->add_control('nletter_description', array(
-		'type' => 'textarea',
-		'section' => 'nletter_section',
-		'label' => __('Description')
-	));
-
-	$wp_customize->add_setting('nletter_input_text', array(
-		'capability' => 'edit_theme_options',
-		'default' => 'Insere aqui o teu email',
-		'sanitize_callback' => 'sanitize_text_field'
-	));
-
-	$wp_customize->add_control('nletter_input_text', array(
-		'type' => 'text',
-		'section' => 'nletter_section',
-		'label' => __('Input Placeholder')
-	));
-
 	// CONTACT
 	$wp_customize->add_section('contact_section', array(
 		'title'    => __('Contact', 'contact'),
@@ -860,6 +818,24 @@ function themevou_customize_register($wp_customize)
 		'type' => 'text',
 		'section' => 'contact_section',
 		'label' => __('Subtitle')
+	));
+
+	$wp_customize->add_setting(
+		'contact_image',
+		array(
+			'default' => get_template_directory_uri() . '/assets/images/tsurutransp.png',
+			'transport' => 'refresh',
+			'sanitize_callback' => 'esc_url_raw'
+		)
+	);
+
+	$wp_customize->add_control(new WP_Customize_Image_Control(
+		$wp_customize,
+		'contact_image',
+		array(
+			'label' => __('Image'),
+			'section' => 'contact_section'
+		)
 	));
 
 	$wp_customize->add_setting('contact_address', array(
@@ -923,77 +899,64 @@ function themevou_customize_register($wp_customize)
 		'label' => __('Slogan')
 	));
 
-	// FOOTER
-	$wp_customize->add_section('footer_section', array(
-		'title'    => __('Footer', 'footer'),
+	// SOCIAL MEDIA
+	$wp_customize->add_section('social_section', array(
+		'title'    => __('Social Media', 'social media'),
 		'panel' => 'homepage_panel'
 	));
 
-	$wp_customize->add_setting('footer_text', array(
-		'capability' => 'edit_theme_options',
-		'default' => 'Copyright 2020 VO.U. Todos os direitos reservados.',
-		'sanitize_callback' => 'sanitize_text_field'
-	));
-
-	$wp_customize->add_control('footer_text', array(
-		'type' => 'text',
-		'section' => 'footer_section',
-		'label' => __('Footer'),
-		'description' => __('Copyright information.')
-	));
-
-	$wp_customize->add_setting('footer_facebook', array(
+	$wp_customize->add_setting('social_facebook', array(
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'esc_url_raw'
 	));
 
-	$wp_customize->add_control('footer_facebook', array(
+	$wp_customize->add_control('social_facebook', array(
 		'type' => 'text',
-		'section' => 'footer_section',
+		'section' => 'social_section',
 		'label' => __('Facebook URL')
 	));
 
-	$wp_customize->add_setting('footer_instagram', array(
+	$wp_customize->add_setting('social_instagram', array(
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'esc_url_raw'
 	));
 
-	$wp_customize->add_control('footer_instagram', array(
+	$wp_customize->add_control('social_instagram', array(
 		'type' => 'text',
-		'section' => 'footer_section',
+		'section' => 'social_section',
 		'label' => __('Instagram URL')
 	));
 
-	$wp_customize->add_setting('footer_twitter', array(
+	$wp_customize->add_setting('social_twitter', array(
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'esc_url_raw'
 	));
 
-	$wp_customize->add_control('footer_twitter', array(
+	$wp_customize->add_control('social_twitter', array(
 		'type' => 'text',
-		'section' => 'footer_section',
+		'section' => 'social_section',
 		'label' => __('Twitter URL')
 	));
 
-	$wp_customize->add_setting('footer_linkedin', array(
+	$wp_customize->add_setting('social_linkedin', array(
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'esc_url_raw'
 	));
 
-	$wp_customize->add_control('footer_linkedin', array(
+	$wp_customize->add_control('social_linkedin', array(
 		'type' => 'text',
-		'section' => 'footer_section',
+		'section' => 'social_section',
 		'label' => __('LinkedIn URL')
 	));
 
-	$wp_customize->add_setting('footer_youtube', array(
+	$wp_customize->add_setting('social_youtube', array(
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'esc_url_raw'
 	));
 
-	$wp_customize->add_control('footer_youtube', array(
+	$wp_customize->add_control('social_youtube', array(
 		'type' => 'text',
-		'section' => 'footer_section',
+		'section' => 'social_section',
 		'label' => __('Youtube URL')
 	));
 }

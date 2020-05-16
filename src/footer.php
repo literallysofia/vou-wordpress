@@ -16,7 +16,7 @@
             echo '<li><a <a href="' . get_theme_mod('footer_facebook') . '"><i class="fab fa-youtube"></i></a></li>';
         ?>
     </ul>
-    <span><?php echo get_theme_mod('footer_text', 'Copyright 2020 VO.U. Todos os direitos reservados.'); ?></span>
+    <p class="copyright">Copyright <i class="far fa-copyright"></i><a href="https://github.com/literallysofia/vou-wordpress">Sofia Silva</a>2020. Todos os direitos reservados.</p>
 </footer>
 <?php wp_footer(); ?>
 </body>

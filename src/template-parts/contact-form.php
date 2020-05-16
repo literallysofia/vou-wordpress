@@ -38,8 +38,8 @@ if (trim($_POST['contact_message']) === '') {
 
 if (!isset($hasError)) {
     $emailTo = get_option('admin_email');
-    $subject = '[' . get_bloginfo('name') . '] Message From ' . $name;
-    $body = "Name: $name \n\nEmail: $email \n\nMessage: $message";
+    $subject = '[' . get_bloginfo('name') . '] Nova Mensagem de ' . $name;
+    $body = "Nome: $name \n\nEmail: $email \n\nMensagem: \n$message";
     $headers = 'From: ' . $name . ' <' . $emailTo . '>' . "\r\n" . 'Reply-To: ' . $email;
 
     wp_mail($emailTo, $subject, $body, $headers);
