@@ -9,7 +9,7 @@
  */
 ?>
 
-<div class="single-event">
+<div class="single-event left">
     <div class="row">
         <div class="col-sm-12 col-md-6">
             <?php the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid', 'alt' => get_the_title()]); ?>

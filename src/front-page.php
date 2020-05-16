@@ -167,7 +167,7 @@ get_header(); ?>
         </div>
     <?php endif; ?>
     <div class="contact section container-fluid">
-        <div class="d-flex justify-content-center">
+        <div class="text-center">
             <img src="<?php echo esc_url(get_theme_mod('contact_image', get_template_directory_uri() . '/assets/images/tsurutransp.png')); ?>" class="img-fluid" alt="Responsive image">
         </div>
         <div class="heading">

@@ -9,7 +9,7 @@
  */
 ?>
 
-<div class="single-event text-right">
+<div class="single-event text-right right">
     <div class="row">
         <div class="col-sm-12 col-md-6 d-flex flex-column align-items-end">
             <h3><?php the_title(); ?></h3>

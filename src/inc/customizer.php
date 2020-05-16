@@ -133,6 +133,9 @@ function theme_get_customizer_css()
 		#departments .single-dep i {
 		color: <?php echo $main_color; ?>;
 		}
+		.news-end {
+		border-bottom: 1px solid <?php echo $main_color; ?>;
+		}
 	<?php
 	}
 

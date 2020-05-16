@@ -10,4 +10,12 @@
   .single-event:not(:first-child) {
     margin-top: 5em;
   }
+  @media (max-width: 767.98px) {
+    .left [class*="col-"]:last-child {
+      margin-top: 2em;
+    }
+    .right [class*="col-"]:last-child {
+      margin-top: 2em;
+    }
+  }
 }
