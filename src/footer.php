@@ -17,6 +17,7 @@
         ?>
     </ul>
     <p class="copyright">Copyright <i class="far fa-copyright"></i><a href="https://github.com/literallysofia/vou-wordpress">Sofia Silva</a>2020. Todos os direitos reservados.</p>
+    <a class="policy" href="<?php echo wp_get_attachment_url((get_theme_mod('footer_policy'))); ?>">Política de Privacidade</a>
 </footer>
 <?php wp_footer(); ?>
 </body>

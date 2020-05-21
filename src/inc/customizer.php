@@ -902,65 +902,95 @@ function themevou_customize_register($wp_customize)
 		'label' => __('Slogan')
 	));
 
-	// SOCIAL MEDIA
-	$wp_customize->add_section('social_section', array(
-		'title'    => __('Social Media', 'social media'),
+	// FOOTER
+	$wp_customize->add_section('footer_section', array(
+		'title'    => __('Footer', 'footer'),
 		'panel' => 'homepage_panel'
 	));
 
-	$wp_customize->add_setting('social_facebook', array(
+	$wp_customize->add_setting('footer_facebook', array(
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'esc_url_raw'
 	));
 
-	$wp_customize->add_control('social_facebook', array(
+	$wp_customize->add_control('footer_facebook', array(
 		'type' => 'text',
-		'section' => 'social_section',
+		'section' => 'footer_section',
 		'label' => __('Facebook URL')
 	));
 
-	$wp_customize->add_setting('social_instagram', array(
+	$wp_customize->add_setting('footer_instagram', array(
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'esc_url_raw'
 	));
 
-	$wp_customize->add_control('social_instagram', array(
+	$wp_customize->add_control('footer_instagram', array(
 		'type' => 'text',
-		'section' => 'social_section',
+		'section' => 'footer_section',
 		'label' => __('Instagram URL')
 	));
 
-	$wp_customize->add_setting('social_twitter', array(
+	$wp_customize->add_setting('footer_twitter', array(
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'esc_url_raw'
 	));
 
-	$wp_customize->add_control('social_twitter', array(
+	$wp_customize->add_control('footer_twitter', array(
 		'type' => 'text',
-		'section' => 'social_section',
+		'section' => 'footer_section',
 		'label' => __('Twitter URL')
 	));
 
-	$wp_customize->add_setting('social_linkedin', array(
+	$wp_customize->add_setting('footer_linkedin', array(
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'esc_url_raw'
 	));
 
-	$wp_customize->add_control('social_linkedin', array(
+	$wp_customize->add_control('footer_linkedin', array(
 		'type' => 'text',
-		'section' => 'social_section',
+		'section' => 'footer_section',
 		'label' => __('LinkedIn URL')
 	));
 
-	$wp_customize->add_setting('social_youtube', array(
+	$wp_customize->add_setting('footer_youtube', array(
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'esc_url_raw'
 	));
 
-	$wp_customize->add_control('social_youtube', array(
+	$wp_customize->add_control('footer_youtube', array(
 		'type' => 'text',
-		'section' => 'social_section',
+		'section' => 'footer_section',
 		'label' => __('Youtube URL')
+	));
+
+	// POLICY
+	$wp_customize->add_setting(
+		'footer_policy',
+		array(
+			'default' => '',
+			'transport' => 'refresh',
+			'sanitize_callback' => 'absint'
+		)
+	);
+
+	$wp_customize->add_control(new WP_Customize_Media_Control(
+		$wp_customize,
+		'footer_policy',
+		array(
+			'label' => __('Privacy Policy File'),
+			'description' => __('Upload the privacy policy pdf file.'),
+			'section' => 'footer_section',
+			'mime_type' => 'application',  // Required. Can be image, audio, video, application, text
+			'button_labels' => array( // Optional
+				'select' => __('Select File'),
+				'change' => __('Change File'),
+				'default' => __('Default'),
+				'remove' => __('Remove'),
+				'placeholder' => __('No file selected'),
+				'frame_title' => __('Select File'),
+				'frame_button' => __('Choose File'),
+			)
+		)
 	));
 }
 add_action('customize_register', 'themevou_customize_register');
