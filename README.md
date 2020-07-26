@@ -1,6 +1,6 @@
 # VO.U. WordPress Theme
 
-Project description.
+**Live Website:** [vou.pt](http://vou.pt)
 
 **Author:** [Sofia Silva](https://github.com/literallysofia)
 
