@@ -36,9 +36,13 @@ get_header();
                             <a href="<?php the_permalink(); ?>" class="btn btn-primary mt-auto">Ler Mais</a>
                         </div>
                     </article>
-                <?php endwhile;
-            else : ?>
-                <p>There no posts to show</p>
+                <?php endwhile; ?>
+                <div class="pagination">
+                    <div class="nav-previous alignleft"><?php next_posts_link('Older posts'); ?></div>
+                    <div class="nav-next alignright"><?php previous_posts_link('Newer posts'); ?></div>
+                </div>
+            <?php else : ?>
+                <p>Não existem publicações.</p>
             <?php endif; ?>
         </div>
     </div>

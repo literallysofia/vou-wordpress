@@ -35,6 +35,7 @@ get_header(); ?>
             $parent_term = get_term_by('slug', $post->post_name,  $taxonomy);
 
             foreach (get_terms(array(
+                'order' => 'DES',
                 'taxonomy'      => $taxonomy,
                 'parent'        => $parent_term->term_id
             )) as $cat) : ?>
