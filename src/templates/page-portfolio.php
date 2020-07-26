@@ -45,6 +45,8 @@ get_header(); ?>
                     <?php
                     $project_query = new WP_Query(array(
                         'post_type' => 'jetpack-portfolio',
+                        'orderby' => 'ID',
+                        'order' => 'ASC',
                         'tax_query'      => array(
                             array(
                                 'taxonomy' => 'jetpack-portfolio-type',
